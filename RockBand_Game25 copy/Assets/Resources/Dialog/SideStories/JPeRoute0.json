@@ -1,0 +1,12 @@
+[
+	{
+		"title": "Start",
+		"tags": "",
+		"body": "This is the start of the J-Pe Route.\n-> Keep going.\n    <<statUp Friendship J-Pe>>\n    <<statUp Friendship J-Pe>>\n    <<statUp Freindship J-Pe>>\n    Stats up.\n-> Don't\n    <<statDown Friendship J-Pe>>\n    <<statDown Friendship J-Pe>>\n    <<statDown Freindship J-Pe>>\n    Stats down.\n    ",
+		"position": {
+			"x": 540,
+			"y": 261
+		},
+		"colorID": 0
+	}
+]
