@@ -3,12 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using Yarn.Unity;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class RelationShipStatManager : MonoBehaviour 
 {
 	public float value;
 	public Text namey;
 	public CharacterSpriteController[] characters;
+	public Color aigColor;
+	public Color jpeColor;
+	public Color leeColor;
+	public Color kentColor;
+	public Color defaultColor;
 
 	[YarnCommand("statUp")]
 	public void increaseFriendship (string name)
@@ -45,6 +51,17 @@ public class RelationShipStatManager : MonoBehaviour
 		}
 		if (name != "...") {
 			namey.text = name;
+			if (name == "Aig") {
+				namey.color = aigColor;
+			} else if (name == "J-Pe") {
+				namey.color = jpeColor;
+			} else if (name == "Lee") {
+				namey.color = leeColor;
+			} else if (name == "Kent") {
+				namey.color = kentColor;
+			} else {
+				namey.color = defaultColor;
+			}
 			CharacterSpriteController csc = GameObject.Find (name).GetComponent<CharacterSpriteController> ();
 			if (csc != null) {
 				csc.speaking = true;

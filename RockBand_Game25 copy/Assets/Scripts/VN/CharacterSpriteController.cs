@@ -25,6 +25,7 @@ public class CharacterSpriteController : MonoBehaviour
 	public bool speaking;
 	public Vector3 speakingScale;
 	public Vector3 normalScale;
+	public bool hasScaled;
 
 	public virtual void Awake ()
 	{
@@ -45,11 +46,19 @@ public class CharacterSpriteController : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		if (speaking) {
-			transform.localScale = speakingScale;
-		} else {
-			transform.localScale = normalScale;
+		if (speaking && !hasScaled) 
+		{
+			hasScaled = true;
+			transform.DOScale (speakingScale, 0.25f);
+		} else if (!speaking && hasScaled && transform.localScale != normalScale) {
+			hasScaled = false;
+			transform.DOScale (normalScale, 0.25f);
 		}
+	}
+
+	void finishScale (bool sent)
+	{
+		hasScaled = sent;
 	}
 
 	[YarnCommand("move")]

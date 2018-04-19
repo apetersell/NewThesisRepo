@@ -19,7 +19,7 @@ public class SceneGuy : MonoBehaviour {
 	GlobalManager gm;
 	TransitionShifter rightTS;
 	TransitionShifter leftTS;
-
+	public Color visible;
 	// Use this for initialization
 	void Start () 
 	{
@@ -32,7 +32,8 @@ public class SceneGuy : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-
+		MidGameSchedule.updateLerpColor ();
+		visible = MidGameSchedule.lerpingColor;
 	}
 
 	public void transitionScene (string transitionTo)
@@ -52,10 +53,11 @@ public class SceneGuy : MonoBehaviour {
 		
 	void startLoad ()
 	{
-//		if (isMiniGame (nextScene)) 
-//		{
-//			minigameSchedule.SetActive (true);
-//		}
+		if (isMiniGame (nextScene)) 
+		{
+			minigameSchedule.SetActive (true);
+			minigameSchedule.GetComponent<MidGameSchedule> ().makeDummySchedule ();
+		}
 		StartCoroutine (loadErOnUp());
 	}
 
@@ -85,7 +87,7 @@ public class SceneGuy : MonoBehaviour {
 	IEnumerator unveilNewScene ()
 	{
 		yield return new WaitForSeconds (transitionSpeed);
-//		minigameSchedule.SetActive (false);
+		minigameSchedule.SetActive (false);
 		leftScreen.transform.DOMove (screenPositions [0].position, transitionSpeed);
 		rightScreen.transform.DOMove (screenPositions [2].position, transitionSpeed);
 		SceneManager.SetActiveScene (SceneManager.GetSceneByName (nextScene));

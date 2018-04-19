@@ -57,6 +57,7 @@ public class TimetableGenerator : MonoBehaviour {
 		makeFriendSchedule ("JP");
 		makeFriendSchedule ("Lee");
 		defaultUnitChangeToSleep();
+		makeDummySchedule ();
 		scheduleList = new List<ScheduleUnit>();
 		UnitType lastType = UnitType.None;
 		int hour = 0; //How many units worth of time is the chunk.
@@ -180,5 +181,17 @@ public class TimetableGenerator : MonoBehaviour {
 			}
 		}
 		globe.LeeSchedule = LeeSchedule;
+	}
+
+	void makeDummySchedule ()
+	{
+		MidGameSchedule.index = 0;
+		MidGameSchedule.dummyList.Clear ();
+		for(int i = 0;i < im_timeTableUnits.Length;i++)
+		{
+			InputManager im_unit = im_timeTableUnits[i]; //Grab a node from the schedule
+			UnitType currentType = im_unit.MyType; // make the current type the type of the node we just pulled.
+			MidGameSchedule.dummyList.Add(currentType);
+		}
 	}
 }

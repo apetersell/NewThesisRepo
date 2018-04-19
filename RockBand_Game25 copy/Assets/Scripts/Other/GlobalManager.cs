@@ -200,6 +200,7 @@ public class GlobalManager :  Singleton<GlobalManager>{
 	{
 		currentGameTime = 0; //Resets timer;
 		ScheduleUnit su = scheduleList [currentIndex];
+		MidGameSchedule.currentUnit = su;
 		UnitType currentType = su.type;
 		if (performance) {
 			maxGameTimer = su.time;
@@ -491,6 +492,8 @@ public class GlobalManager :  Singleton<GlobalManager>{
 			} else {
 				night = true;
 			}
+			MidGameSchedule.index++;
+			Debug.Log (MidGameSchedule.index);
 			dayNightTimer = 0;
 		}
 	}

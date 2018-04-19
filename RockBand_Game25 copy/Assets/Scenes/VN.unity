@@ -675,6 +675,11 @@ MonoBehaviour:
   - {fileID: 748337066}
   - {fileID: 1924014089}
   - {fileID: 1334746245}
+  aigColor: {r: 0.6745098, g: 0.8313726, b: 0.45098042, a: 1}
+  jpeColor: {r: 1, g: 0.80689657, b: 0, a: 1}
+  leeColor: {r: 0.6965513, g: 0, b: 1, a: 1}
+  kentColor: {r: 0, g: 0.8758622, b: 1, a: 1}
+  defaultColor: {r: 1, g: 0, b: 0.93103456, a: 1}
 --- !u!4 &326725585
 Transform:
   m_ObjectHideFlags: 0
@@ -908,6 +913,8 @@ MonoBehaviour:
   speaking: 0
   speakingScale: {x: 1.1, y: 1.1, z: 1.1}
   normalScale: {x: 1, y: 1, z: 1}
+  hasScaled: 0
+  directionMod: -1
 --- !u!114 &514857575
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1403,6 +1410,8 @@ MonoBehaviour:
   speaking: 0
   speakingScale: {x: 1.1, y: 1.1, z: 1.1}
   normalScale: {x: 1, y: 1, z: 1}
+  hasScaled: 0
+  directionMod: -1
 --- !u!114 &748337067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2605,6 +2614,8 @@ MonoBehaviour:
   speaking: 0
   speakingScale: {x: 1.1, y: 1.1, z: 1.1}
   normalScale: {x: 1, y: 1, z: 1}
+  hasScaled: 0
+  directionMod: 1
   expressions:
   - {fileID: 21300000, guid: 5d636985c2c5640bb8f411c0384d365a, type: 3}
   - {fileID: 21300000, guid: d917875992b75438e86d96f112c6a19c, type: 3}
@@ -2814,6 +2825,8 @@ MonoBehaviour:
   speaking: 0
   speakingScale: {x: 1.1, y: 1.1, z: 1.1}
   normalScale: {x: 1, y: 1, z: 1}
+  hasScaled: 0
+  directionMod: 1
 --- !u!1 &1599053154
 GameObject:
   m_ObjectHideFlags: 0
@@ -3434,6 +3447,8 @@ MonoBehaviour:
   speaking: 0
   speakingScale: {x: 1.1, y: 1.1, z: 1.1}
   normalScale: {x: 1, y: 1, z: 1}
+  hasScaled: 0
+  directionMod: 1
 --- !u!1 &1931240846
 GameObject:
   m_ObjectHideFlags: 0
