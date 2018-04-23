@@ -79,7 +79,7 @@ public class TimetableGenerator : MonoBehaviour {
 					currentUnit.type = lastType;
 					currentUnit.time = hour;
 					scheduleList.Add (currentUnit);
-					//Debug.Log (i + ": " + currentUnit.type + "for " + hour + " units.");
+					Debug.Log (i + ": " + currentUnit.type + "for " + hour + " units.");
 				}
 				//change Last type to the whatever the current type is and reset the timer.
 				lastType = currentType; 
@@ -88,14 +88,14 @@ public class TimetableGenerator : MonoBehaviour {
 			else //if it is the same as the last one we pulled.
 			{
 				hour+= 1; //add time to it.
-				if(i == im_timeTableUnits.Length - 1)//if it's the last one in the schdule
+				if(i == im_timeTableUnits.Length)//if it's the last one in the schdule
 				{
 					//Make the schedule unit.
 					ScheduleUnit currentUnit;// = new ScheduleUnit(lastType,hour);
 					currentUnit.type = lastType;
 					currentUnit.time = hour;//(currentUnit.type == UnitType.Sleep)? hour:hour*10;//hour;
 					scheduleList.Add(currentUnit);
-					//Debug.Log (i + " LAST: Added " + currentUnit.type + "for " + hour + " units.");
+					Debug.Log (i + " LAST: Added " + currentUnit.type + "for " + hour + " units.");
 				}
 			}
 		}
@@ -141,7 +141,7 @@ public class TimetableGenerator : MonoBehaviour {
 				else //if it is the same as the last one we pulled.
 				{
 					hour+= 1; //add time to it.
-					if(i == 13)//if it's the last one in the schedule
+					if(i == 14)//if it's the last one in the schedule
 					{
 						//Make the schedule unit.
 						ScheduleUnit currentUnit;//= new ScheduleUnit(lastType,hour);
@@ -185,7 +185,7 @@ public class TimetableGenerator : MonoBehaviour {
 				else //if it is the same as the last one we pulled.
 				{
 					hour+= 1; //add time to it.
-					if(i == 13)//if it's the last one in the schdule
+					if(i == 14)//if it's the last one in the schdule
 					{
 						//Make the schedule unit.
 						ScheduleUnit currentUnit;// = new ScheduleUnit(lastType,hour);
