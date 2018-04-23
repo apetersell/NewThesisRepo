@@ -28,7 +28,11 @@ public class GlobalManager :  Singleton<GlobalManager>{
 	public float VocalScore = 0;
 	public float PRScore = 0;
 	public float Stress = 0;
+
+	//Concerning Stress
 	public float stressMultiplier;
+	public float stressIncreaseRate;
+	public float stressMultiLimit;
 
 	//Career Stats
 	public float SongWriteScore = 0;
@@ -127,7 +131,7 @@ public class GlobalManager :  Singleton<GlobalManager>{
 	public int maxLeeTime;
 	public float currentLeeTime; 
 	GameObject LeeImage;
-	GameObject JPImage;
+	GameObject JPImage; 
 
 
 	//Finds the string for the next actiivty.
@@ -174,11 +178,13 @@ public class GlobalManager :  Singleton<GlobalManager>{
 
 		Screen.SetResolution(1600, 900, true);
 		sg = GetComponent<SceneGuy> ();
+		stressIncreaseRate = stressMultiLimit / 7;
 	}
 
 	//Called when mini-game phase begins.
 	public void StartMiniGaming()
 	{
+		stressMultiplier = 1;
 		currentIndex = 0; //
 		JPIndex = 0;
 		LeeIndex = 0;
@@ -223,23 +229,6 @@ public class GlobalManager :  Singleton<GlobalManager>{
 		case UnitType.Songwriting:sg.transitionScene("SongyWritey");break;
 		case UnitType.StreetModeling:sg.transitionScene("DressyUppy");break;
 		}
-
-
-		//If the current mini-game isn't sleeping, add stress.
-		if(currentType != UnitType.Rest)
-		{
-			//if(Stress + currentTime*10f< 1000f){
-			if (!performance) 
-			{
-				Stress += maxGameTimer * stressMultiplier;
-			}
-			//}else{
-			//	Stress = 1000f;
-			//	//game over
-			//}
-		}
-
-
 	}
 
 	void advanceFriendSchedule (string name)
@@ -282,11 +271,17 @@ public class GlobalManager :  Singleton<GlobalManager>{
 		StoryManager.modelThresholds = modelThresholds;
 		StoryManager.tvThresholds = tvThresholds; 
 
-
+		//Stress management
 		if (Stress <= 0) 
 		{
 			Stress = 0;
 		}
+			
+		if (stressMultiplier > stressMultiLimit) 
+		{
+			stressMultiplier = stressMultiLimit;
+		}
+			
 		//Calculate total fans.
 		totalFans = Mathf.Round(AigFans) + Mathf.Round (JPFans) + Mathf.Round(LeeFans);
 
@@ -343,10 +338,16 @@ public class GlobalManager :  Singleton<GlobalManager>{
 			{
 				loadVNScene ();
 			}
-			if (!miniGameDebug) 
+			if (!miniGameDebug && !isStopped) 
 			{
 				handleCalendar ();
 			}
+
+			if (currentGame != UnitType.Rest && !isStopped) 
+			{
+				handleStressIncrease ();
+			}
+
 			if (LeeImage != null) 
 			{
 				LeeImage.SetActive (LeePresent);
@@ -493,8 +494,14 @@ public class GlobalManager :  Singleton<GlobalManager>{
 				night = true;
 			}
 			MidGameSchedule.index++;
+			stressMultiplier += stressIncreaseRate;
 			dayNightTimer = 0;
 		}
+	}
+
+	void handleStressIncrease ()
+	{
+		Stress += stressMultiplier * Time.deltaTime;
 	}
 
 	//Used at the start of each week, so what know what scores the player has at the beginning of the week.

@@ -106,6 +106,7 @@ public class SceneGuy : MonoBehaviour {
 		{
 			poseyMatchManager.findReferences ();
 		}
+		gm.stressMultiplier = 1; //Reset stress multiplier 
 		current = SceneManager.GetActiveScene().name;
 		switch (current) 
 		{
