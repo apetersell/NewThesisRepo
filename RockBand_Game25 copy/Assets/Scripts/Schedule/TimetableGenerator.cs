@@ -30,13 +30,12 @@ public class TimetableGenerator : MonoBehaviour {
 	void Update () 
 	{
 
-
 	
 	}
 
 	//Any blank slots are changed to sleep (never called?)
 	void defaultUnitChangeToSleep(){
-		for(int i = 0;i < 14;i++){
+		for(int i = 0;i < im_timeTableUnits.Length;i++){
 			InputManager im_unit = im_timeTableUnits[i];
 			im_unit.SendMessage("checkDefaultToSleep");
 
@@ -61,20 +60,26 @@ public class TimetableGenerator : MonoBehaviour {
 		scheduleList = new List<ScheduleUnit>();
 		UnitType lastType = UnitType.None;
 		int hour = 0; //How many units worth of time is the chunk.
-		for(int i = 0;i < im_timeTableUnits.Length;i++)
+		for(int i = 0;i < im_timeTableUnits.Length + 1;i++)
 		{
-			InputManager im_unit = im_timeTableUnits[i]; //Grab a node from the schedule
-			UnitType currentType = im_unit.MyType; // make the current type the type of the node we just pulled.
+			InputManager im_unit = null;
+			UnitType currentType = UnitType.None;
+			if (i < im_timeTableUnits.Length)
+			{
+				im_unit = im_timeTableUnits[i]; //Grab a node from the schedule
+				currentType = im_unit.MyType; // make the current type the type of the node we just pulled.
+			}
 
 			if(currentType != lastType) //if that type we just pullled is not the same as the last type
 			{
-				if(i > 0) //and it's not the first node we pulled.
-				{
+				if (i > 0) 
+				{ //if it's the first node we pulled.
 					//Make a new schedule unit with this type and time.
 					ScheduleUnit currentUnit;
 					currentUnit.type = lastType;
 					currentUnit.time = hour;
-					scheduleList.Add(currentUnit);
+					scheduleList.Add (currentUnit);
+					//Debug.Log (i + ": " + currentUnit.type + "for " + hour + " units.");
 				}
 				//change Last type to the whatever the current type is and reset the timer.
 				lastType = currentType; 
@@ -90,6 +95,7 @@ public class TimetableGenerator : MonoBehaviour {
 					currentUnit.type = lastType;
 					currentUnit.time = hour;//(currentUnit.type == UnitType.Sleep)? hour:hour*10;//hour;
 					scheduleList.Add(currentUnit);
+					//Debug.Log (i + " LAST: Added " + currentUnit.type + "for " + hour + " units.");
 				}
 			}
 		}
@@ -105,15 +111,20 @@ public class TimetableGenerator : MonoBehaviour {
 			int hour = 0;
 			UnitType lastType = UnitType.None;
 			JPSchedule = new List<ScheduleUnit>(); 
-			for (int i = 0; i < 14; i++) 
+			for (int i = 0; i < 15; i++) 
 			{
-				InputManager im_unit = im_timeTableUnits[i]; //Grab a node from the schedule
-				UnitType currentType = im_unit.JPeGame; // make the current type the type of the node we just pulled.
+				InputManager im_unit = null;
+				UnitType currentType = UnitType.None; 
+				if (i < 14)
+				{
+					im_unit = im_timeTableUnits[i]; //Grab a node from the schedule
+					currentType = im_unit.JPeGame; // make the current type the type of the node we just pulled.
+				}
 //				Debug.Log (im_unit.JPeGame);
 
 				if(currentType != lastType) //if that type we just pullled is not the same as the last type
 				{
-					if(i > 0) //and it's not the first node we pulled.
+					if(i > 0) // if it's not the first node we pulled.
 					{
 						//Make a new schedule unit with this type and time.
 						ScheduleUnit currentUnit; 
@@ -122,6 +133,7 @@ public class TimetableGenerator : MonoBehaviour {
 						JPSchedule.Add(currentUnit);
 						//Debug.Log ("Added: " + currentUnit.type.ToString () + " for " + currentUnit.time);
 					}
+
 					//change Last type to the whatever the current type is and reset the timer.
 					lastType = currentType; 
 					hour = 1;
@@ -147,11 +159,15 @@ public class TimetableGenerator : MonoBehaviour {
 			int hour = 0;
 			UnitType lastType = UnitType.None;
 			LeeSchedule = new List<ScheduleUnit>(); 
-			for (int i = 0; i < 14; i++) 
+			for (int i = 0; i < 15; i++) 
 			{
-				InputManager im_unit = im_timeTableUnits[i]; //Grab a node from the schedule
-				UnitType currentType = im_unit.LeeGame; // make the current type the type of the node we just pulled.
-
+				InputManager im_unit = null;
+				UnitType currentType = UnitType.None; 
+				if (i < 14)
+				{
+					im_unit = im_timeTableUnits[i]; //Grab a node from the schedule
+					currentType = im_unit.LeeGame; // make the current type the type of the node we just pulled.
+				}
 				if(currentType != lastType) //if that type we just pullled is not the same as the last type
 				{
 					if(i > 0) //and it's not the first node we pulled.

@@ -493,7 +493,6 @@ public class GlobalManager :  Singleton<GlobalManager>{
 				night = true;
 			}
 			MidGameSchedule.index++;
-			Debug.Log (MidGameSchedule.index);
 			dayNightTimer = 0;
 		}
 	}

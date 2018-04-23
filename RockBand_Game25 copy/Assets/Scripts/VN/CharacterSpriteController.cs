@@ -104,6 +104,11 @@ public class CharacterSpriteController : MonoBehaviour
 	{
 		speakingScale = new Vector3 (speakingScale.x * -1, speakingScale.y, speakingScale.y);
 		normalScale = new Vector3 (normalScale.x * -1, normalScale.y, normalScale.z);
+		if (speaking) {
+			transform.DOScale (speakingScale, 0.25f);
+		} else {
+			transform.DOScale (normalScale, 0.25f);
+		}
 	}
 
 	public void doFriendEffect (bool isHappy)
