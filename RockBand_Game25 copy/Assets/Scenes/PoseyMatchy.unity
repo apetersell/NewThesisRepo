@@ -4217,6 +4217,8 @@ MonoBehaviour:
   PRScore: 0
   Stress: 0
   stressMultiplier: 10
+  stressIncreaseRate: 0
+  stressMultiLimit: 0
   SongWriteScore: 0
   ModelScore: 0
   TVScore: 0

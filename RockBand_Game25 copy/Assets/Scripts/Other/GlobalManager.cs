@@ -324,6 +324,8 @@ public class GlobalManager :  Singleton<GlobalManager>{
 		if (Input.GetKeyDown (KeyCode.R)) 
 		{
 			StoryManager.cleanHouse ();
+			UnlockManager.cleanHouse ();
+			TutorialManager.tutorialIndex = 0;
 			SceneGuy.nextScene = null;
 			SceneGuy.current = null;
 			Destroy (this.gameObject);

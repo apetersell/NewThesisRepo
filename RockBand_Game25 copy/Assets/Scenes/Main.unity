@@ -3755,6 +3755,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 743196287}
+  - component: {fileID: 743196288}
   m_Layer: 5
   m_Name: Buttons
   m_TagString: Untagged
@@ -3787,6 +3788,19 @@ RectTransform:
   m_AnchoredPosition: {x: -301, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &743196288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 743196286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e3e3006ddcac42ffbdcac74b8955e07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unlockables:
+  - {fileID: 521060788}
 --- !u!1 &746013404
 GameObject:
   m_ObjectHideFlags: 0
@@ -8833,6 +8847,8 @@ MonoBehaviour:
   PRScore: 356
   Stress: 500
   stressMultiplier: 10
+  stressIncreaseRate: 0
+  stressMultiLimit: 0
   SongWriteScore: 0
   ModelScore: 0
   TVScore: 0
