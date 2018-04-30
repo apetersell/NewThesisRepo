@@ -14,6 +14,6 @@ public class LockedMiniGame : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		unlockables [0].SetActive (UnlockManager.restUnlocked);
+		//unlockables [0].SetActive (UnlockManager.restUnlocked);
 	}
 }

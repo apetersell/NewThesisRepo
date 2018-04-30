@@ -496,7 +496,9 @@ public class GlobalManager :  Singleton<GlobalManager>{
 				night = true;
 			}
 			BGDissolve bgd = (BGDissolve)FindObjectOfType(typeof(BGDissolve));
-			bgd.timeShift (night);
+			if (bgd != null) {
+				bgd.timeShift (night);
+			}
 			MidGameSchedule.index++;
 			stressMultiplier += stressIncreaseRate;
 			dayNightTimer = 0;

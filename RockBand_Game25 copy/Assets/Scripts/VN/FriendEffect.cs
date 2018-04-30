@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class FriendEffect : MonoBehaviour 
 {
 	AudioSource auds;
-	public Sprite happyFace; 
-	public Sprite angryFace; 
+	public Sprite happyFaceJPe; 
+	public Sprite angryFaceJpe; 
+	public Sprite happyFaceLee;
+	public Sprite angryFaceLee;
 	public bool happy;
 	public float speed;
 	public AudioClip happySound;
@@ -23,20 +26,45 @@ public class FriendEffect : MonoBehaviour
 	void Start () 
 	{
 		auds = GetComponent<AudioSource> ();
-		StartCoroutine (scaleOverTime (scaleTime));
+		transform.DOScale (expandedScale, scaleTime).OnComplete(fadeAway);
 		originalScale = GetComponent<RectTransform> ().localScale;
-		img = GetComponent<Image> ();
 		if (happy) {
-			img.sprite = happyFace;
 			auds.PlayOneShot (happySound);
 		} else {
-			img.sprite = angryFace;
 			auds.PlayOneShot (angrySound);
 		}
 	
 
 	}
-	
+
+	public void changeSprite(string sent)
+	{
+		img = GetComponent<Image> ();
+		if (sent == "J-Pe") {
+			if (happy) {
+				img.sprite = happyFaceJPe; 
+			} else {
+				img.sprite = angryFaceJpe; 
+			}
+		} else {
+			if (happy) {
+				img.sprite = happyFaceLee;
+			} else {
+				img.sprite = angryFaceLee;
+			}
+		}
+	}
+
+	public void fadeAway()
+	{
+		img.DOColor (Color.clear, fadeTime).OnComplete (die);
+	}
+
+	public void die()
+	{
+		Destroy (this.gameObject);
+	}
+
 	// Update is called once per frame
 	void Update () 
 	{
@@ -44,39 +72,5 @@ public class FriendEffect : MonoBehaviour
 			GetComponent<RectTransform> ().localPosition.x,
 			GetComponent<RectTransform> ().localPosition.y + speed,
 			GetComponent<RectTransform> ().localPosition.z);
-	}
-
-	IEnumerator scaleOverTime (float time)
-	{
-		Vector3 targetScale = new Vector3 (expandedScale, expandedScale, expandedScale); 
-		float currentTime = 0.0f;
-
-		do
-		{
-			GetComponent<RectTransform>().localScale = Vector3.Lerp(originalScale, targetScale, currentTime / time); 
-			currentTime += Time.deltaTime;
-			yield return null;
-		} 
-		while (currentTime <= time); 
-
-		StartCoroutine (fade (fadeTime)); 
-	}
-
-	IEnumerator fade (float time) 
-	{
-
-		Color targetColor = img.color; 
-		targetColor.a = 0; 
-		float currentTime = 0.0f;
-
-		do
-		{ 
-			img.color = Color.Lerp (Color.white, targetColor, currentTime/time);  
-			currentTime += Time.deltaTime;
-			yield return null;
-		} 
-		while (currentTime <= time); 
-
-		Destroy(this.gameObject);
 	}
 }

@@ -117,6 +117,7 @@ public class CharacterSpriteController : MonoBehaviour
 		effect.transform.SetParent (GameObject.Find ("VNCanvas").transform);
 		effect.GetComponent<RectTransform> ().localPosition = GetComponent<RectTransform> ().localPosition;
 		effect.GetComponent<FriendEffect> ().happy = isHappy;
+		effect.GetComponent<FriendEffect> ().changeSprite (this.gameObject.name);
 	}
 
 	[YarnCommand("outfit")]

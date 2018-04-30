@@ -2130,13 +2130,15 @@ AnimationClip:
     - time: 6
       value: {fileID: 21300000, guid: eefdf151ec07a499e90130b9d10121b0, type: 3}
     - time: 7
-      value: {fileID: 21300000, guid: bb5d0eff346204fe8bc4a8a98b3cc25a, type: 3}
+      value: {fileID: 21300000, guid: de954cc4225434439b50b8ff17283d79, type: 3}
     - time: 10
       value: {fileID: 21300000, guid: 55e76fd42a4654e7db50bba9011e71d8, type: 3}
     - time: 11
       value: {fileID: 21300000, guid: eefdf151ec07a499e90130b9d10121b0, type: 3}
     - time: 12
-      value: {fileID: 21300000, guid: bb5d0eff346204fe8bc4a8a98b3cc25a, type: 3}
+      value: {fileID: 21300000, guid: de954cc4225434439b50b8ff17283d79, type: 3}
+    - time: 12.033334
+      value: {fileID: 21300000, guid: de954cc4225434439b50b8ff17283d79, type: 3}
     attribute: m_Sprite
     path: MiniGameScreenShots
     classID: 114
@@ -2762,10 +2764,11 @@ AnimationClip:
     - {fileID: 21300000, guid: eefdf151ec07a499e90130b9d10121b0, type: 3}
     - {fileID: 21300000, guid: 55e76fd42a4654e7db50bba9011e71d8, type: 3}
     - {fileID: 21300000, guid: eefdf151ec07a499e90130b9d10121b0, type: 3}
-    - {fileID: 21300000, guid: bb5d0eff346204fe8bc4a8a98b3cc25a, type: 3}
+    - {fileID: 21300000, guid: de954cc4225434439b50b8ff17283d79, type: 3}
     - {fileID: 21300000, guid: 55e76fd42a4654e7db50bba9011e71d8, type: 3}
     - {fileID: 21300000, guid: eefdf151ec07a499e90130b9d10121b0, type: 3}
-    - {fileID: 21300000, guid: bb5d0eff346204fe8bc4a8a98b3cc25a, type: 3}
+    - {fileID: 21300000, guid: de954cc4225434439b50b8ff17283d79, type: 3}
+    - {fileID: 21300000, guid: de954cc4225434439b50b8ff17283d79, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

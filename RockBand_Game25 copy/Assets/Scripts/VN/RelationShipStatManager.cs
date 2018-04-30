@@ -15,6 +15,7 @@ public class RelationShipStatManager : MonoBehaviour
 	public Color leeColor;
 	public Color kentColor;
 	public Color defaultColor;
+	public FriendMeterEffect fme;
 
 	[YarnCommand("statUp")]
 	public void increaseFriendship (string name)
@@ -23,9 +24,11 @@ public class RelationShipStatManager : MonoBehaviour
 		if (name == "Lee") {
 			globe.leeRelationship += value;
 			GameObject.Find ("Lee").GetComponent<CharacterSpriteController> ().doFriendEffect (true);
+			fme.startProcess (true, "Lee", globe.leeRelationship);
 		} else {
 			globe.jPeRelationship += value;
 			GameObject.Find ("J-Pe").GetComponent<CharacterSpriteController> ().doFriendEffect (true);
+			fme.startProcess (true, "J-Pe", globe.jPeRelationship);
 		}
 	}
 
@@ -36,9 +39,11 @@ public class RelationShipStatManager : MonoBehaviour
 		if (name == "Lee") {
 			globe.leeRelationship -= value;
 			GameObject.Find ("Lee").GetComponent<CharacterSpriteController> ().doFriendEffect (false);
+			fme.startProcess (false, "Lee", globe.leeRelationship);
 		} else {
 			globe.jPeRelationship -= value;
 			GameObject.Find ("J-Pe").GetComponent<CharacterSpriteController> ().doFriendEffect (false);
+			fme.startProcess (false, "J-Pe", globe.jPeRelationship);
 		}
 	}
 

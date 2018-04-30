@@ -2450,13 +2450,14 @@ MonoBehaviour:
   titleMusic: {fileID: 8300000, guid: 7bf795580fd7748a49e647f2884418b9, type: 3}
   scheduleMusic: {fileID: 8300000, guid: 35ad22d31ff204152b20b7508d40f0fd, type: 3}
   selectedTrack: {fileID: 8300000, guid: 4a1c99c3af6484c1ea9dad6a497a9c72, type: 3}
-  VNMusic: {fileID: 8300000, guid: 718c10f38505d4e969a148d8887f9160, type: 3}
+  VNMusic: {fileID: 8300000, guid: cabb9adfa08704f629555f713a72664f, type: 3}
   miniGameSongs:
   - {fileID: 8300000, guid: 3de03b6a313fe4440aa45112e4fbfaa1, type: 3}
   - {fileID: 8300000, guid: a8f0f695583234f4a8260d406b823235, type: 3}
   - {fileID: 8300000, guid: 284de59956b1846e89e93f2479cfdbea, type: 3}
   - {fileID: 8300000, guid: ec35b9d2e30ad41078024e1c9ec27f1d, type: 3}
   - {fileID: 8300000, guid: 7bf795580fd7748a49e647f2884418b9, type: 3}
+  postGameJingle: {fileID: 8300000, guid: 71f316e5e76bd456291e5e2f16fdc4e3, type: 3}
 --- !u!82 &2118872829
 AudioSource:
   m_ObjectHideFlags: 0

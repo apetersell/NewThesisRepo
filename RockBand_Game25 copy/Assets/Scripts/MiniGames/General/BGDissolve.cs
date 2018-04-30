@@ -7,7 +7,7 @@ public class BGDissolve : MonoBehaviour {
 
 	public SpriteRenderer day;
 	GlobalManager gm;
-	public static float shiftTime = 0.25f;
+	public static float shiftTime = 1;
 
 	// Use this for initialization
 	void Start () 

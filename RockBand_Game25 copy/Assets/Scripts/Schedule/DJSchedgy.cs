@@ -10,6 +10,8 @@ public class DJSchedgy : MonoBehaviour {
 	public AudioClip selectedTrack;
 	public AudioClip VNMusic;
 	public AudioClip[] miniGameSongs;
+	public AudioClip postGameJingle;
+	bool playedJingle;
 
 	GlobalManager globe;
 	AudioSource aud;
@@ -34,24 +36,44 @@ public class DJSchedgy : MonoBehaviour {
 				aud.Stop ();
 				aud.clip = scheduleMusic;
 				aud.Play ();
+				aud.loop = true;
 			} 
-		} else if (globe.myState == PlayerState.miniGaming) {
-			if (aud.clip != selectedTrack) {
-				aud.Stop ();
-				aud.clip = selectedTrack;
-				aud.Play ();
+		} else if (globe.myState == PlayerState.miniGaming) 
+		{
+			if (!globe.isStopped) {
+				if (aud.clip != selectedTrack) {
+					aud.Stop ();
+					aud.clip = selectedTrack;
+					aud.Play ();
+					playedJingle = false;
+					aud.loop = true;
+				}
+			} else {
+				aud.loop = false;
+				if (!playedJingle) 
+				{
+					if (!aud.isPlaying) 
+					{
+						aud.Stop ();
+						aud.clip = postGameJingle;
+						aud.Play ();
+						playedJingle = true;
+					}
+				}
 			}
 		} else if (globe.myState == PlayerState.visualNoveling) {
 			if (aud.clip != VNMusic) {
 				aud.Stop ();
 				aud.clip = VNMusic;
 				aud.Play ();
+				aud.loop = true;
 			}
 		} else if (globe.myState == PlayerState.titleScreen) {
 			if (aud.clip != titleMusic) {
 				aud.Stop ();
 				aud.clip = titleMusic;
 				aud.Play ();
+				aud.loop = true;
 			}
 		}
 	}
