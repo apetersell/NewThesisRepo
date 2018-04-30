@@ -41,7 +41,7 @@ public class TextProperties : MonoBehaviour {
 		}
 
 		transform.localPosition = positions [pos];
-		transform.localScale = new Vector3 (1, 1, 1);
+		transform.localScale = new Vector3 (1.8f, 1.8f, 1.8f);
 	}
 
 	public void changeAigChoice ()

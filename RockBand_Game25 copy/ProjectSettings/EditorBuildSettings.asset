@@ -17,12 +17,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PitchyMatchy.unity
     guid: 5828ed691bc8e447cb34d318191b9203
-  - enabled: 1
-    path: Assets/AsyncTest/BlueScne.unity
-    guid: fcfad8fdd6e244aeb906e126753fe6f4
-  - enabled: 1
-    path: Assets/AsyncTest/RedScene.unity
-    guid: b0d3a43b163c74630b057679a91fe121
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/PassOutFliers.unity
     guid: 4f65e7ef0665844dca2a9d93edb91656

@@ -79,7 +79,7 @@ public class TimetableGenerator : MonoBehaviour {
 					currentUnit.type = lastType;
 					currentUnit.time = hour;
 					scheduleList.Add (currentUnit);
-					Debug.Log (i + ": " + currentUnit.type + "for " + hour + " units.");
+					//Debug.Log (i + ": " + currentUnit.type + "for " + hour + " units.");
 				}
 				//change Last type to the whatever the current type is and reset the timer.
 				lastType = currentType; 

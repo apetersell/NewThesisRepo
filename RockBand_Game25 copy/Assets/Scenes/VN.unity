@@ -16808,7 +16808,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backgrounds:
   - {fileID: 21300000, guid: c08f5cfc52acb48e89db13349fed8b8e, type: 3}
-  - {fileID: 21300000, guid: ac7ffcff652e24f39a5c82ce66ff8843, type: 3}
+  - {fileID: 21300000, guid: ba3314b925e0f4f3daf5558db64bf1dd, type: 3}
   - {fileID: 21300000, guid: 2effebbb663ef4d0cb57177f6e1cbdac, type: 3}
 --- !u!1 &1802745899
 GameObject:

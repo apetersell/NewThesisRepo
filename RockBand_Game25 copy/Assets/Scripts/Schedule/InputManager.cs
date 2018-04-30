@@ -41,7 +41,7 @@ public class InputManager : MonoBehaviour
 
 	void Awake()
 	{
-		savedSprite = Resources.Load<Sprite> ("blank"); //Make sure we have no sprite to start.
+		savedSprite = Resources.Load<Sprite> ("Sprites/Other/blank"); //Make sure we have no sprite to start.
 		currentSprite = savedSprite;
 		sprite = GetComponent<Image>();
 	}

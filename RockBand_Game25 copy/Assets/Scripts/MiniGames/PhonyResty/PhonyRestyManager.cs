@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class PhonyRestyManager : MonoBehaviour {
 
 	public Transform thumb;
 	public Vector3[] thumbPositions;
+	public float thumbMoveSpeed; 
 	public Text display;
 	GlobalManager globe;
 	public float stressDecreaseRate;
@@ -14,6 +16,7 @@ public class PhonyRestyManager : MonoBehaviour {
 	public float maxTimeFrustrated;
 	float frustrationTimer;
 	public GameObject frustrationEffect;
+	public GameObject aigEffect;
 	public GameObject texting;
 	public GameObject hattyCatchy; 
 	public bool testing;
@@ -24,7 +27,7 @@ public class PhonyRestyManager : MonoBehaviour {
 	void Start () 
 	{
 		globe = (GlobalManager)FindObjectOfType(typeof(GlobalManager));
-		thumbPositions [0] = thumb.transform.localPosition;
+		thumbPositions[0] = thumb.transform.position;
 		anim = GameObject.Find ("Aig-mini-rest").GetComponent<Animator> ();
 	}
 	
@@ -73,11 +76,15 @@ public class PhonyRestyManager : MonoBehaviour {
 	void thumbPlacement ()
 	{
 		if (Input.GetKey (KeyCode.LeftArrow)) {
-			thumb.transform.localPosition = thumbPositions [1];
-		} else if (Input.GetKey (KeyCode.RightArrow)) {
-			thumb.transform.localPosition = thumbPositions [2];
-		} else {
-			thumb.transform.localPosition = thumbPositions [0];
+			thumb.transform.DOMove (thumbPositions [1], thumbMoveSpeed);
+		} 
+		else if (Input.GetKey (KeyCode.RightArrow)) {
+			thumb.transform.DOMove (thumbPositions [2], thumbMoveSpeed);
+		} 
+//		else (Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.RightArrow))
+		else
+		{
+			thumb.transform.DOMove (thumbPositions [0], thumbMoveSpeed);
 		}
 	}
 
@@ -96,16 +103,18 @@ public class PhonyRestyManager : MonoBehaviour {
 	}
 	public void frustrate (int sent)
 	{
-		GameObject effect = Instantiate (frustrationEffect) as GameObject;
-		FrustrationEffect fe = effect.GetComponent<FrustrationEffect> ();
-		Animator animeEffect = effect.transform.GetChild (0).GetComponent<Animator> ();
-		anim.SetTrigger ("Miss");
-		if (sent == 0) 
-		{
-			anim.SetBool ("Drop", true);
+		if (sent == 0) {
+			GameObject aig = Instantiate (aigEffect) as GameObject; 
+			frustrated = true;
+			frustrationTimer = 0;
+		} else {
+			GameObject effect = Instantiate (frustrationEffect) as GameObject;
+			FrustrationEffect fe = effect.GetComponent<FrustrationEffect> ();
+			Animator animeEffect = effect.transform.GetChild (0).GetComponent<Animator> ();
+			anim.SetTrigger ("Miss");
+			fe.spriteIndex = sent;
+			frustrated = true;
+			frustrationTimer = 0;
 		}
-		fe.spriteIndex = sent;
-		frustrated = true;
-		frustrationTimer = 0;
 	}
 }

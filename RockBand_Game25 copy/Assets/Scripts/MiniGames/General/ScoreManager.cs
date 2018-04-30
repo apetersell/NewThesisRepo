@@ -126,7 +126,7 @@ public class ScoreManager : MonoBehaviour {
 				}
 			} else {
 				if (!globe.isStopped) {
-//					globe.Stress += globe.stressMultiplier * multiplier;
+					globe.Stress += globe.stressMultiplier * multiplier;
 					inARow = 0;
 					misses++;
 				}

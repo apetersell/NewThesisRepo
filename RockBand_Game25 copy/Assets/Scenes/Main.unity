@@ -3799,8 +3799,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e3e3006ddcac42ffbdcac74b8955e07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unlockables:
-  - {fileID: 521060788}
+  unlockables: []
 --- !u!1 &746013404
 GameObject:
   m_ObjectHideFlags: 0

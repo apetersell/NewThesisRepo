@@ -48,8 +48,8 @@ public class TextingManager : MonoBehaviour {
 	bool acceptingInputs;
 	bool responded;
 	bool chainEnded;
-	public GameObject yes;
-	public GameObject no;
+	public SpriteRenderer controlBar;
+	public Color greyed;
 	public GameObject textObject; 
 	public GameObject aigText;
 	public Transform personalCanvas;
@@ -66,6 +66,10 @@ public class TextingManager : MonoBehaviour {
 	PhonyRestyManager prm;
 	public float friendshipMod;
 
+	AudioSource auds;
+	public AudioClip recieve;
+	public AudioClip send;
+
 
 	// Use this for initialization
 	void Start () 
@@ -73,17 +77,17 @@ public class TextingManager : MonoBehaviour {
 		makeTexts ();
 		globe = (GlobalManager)FindObjectOfType(typeof(GlobalManager));
 		prm = GameObject.Find ("Manager").GetComponent<PhonyRestyManager> ();
+		auds = GetComponent<AudioSource> ();
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-		if (acceptingInputs) 
-		{
+		if (acceptingInputs) {
 			inputs ();
-		}
-		yes.SetActive (acceptingInputs);
-		no.SetActive (acceptingInputs);
+			controlBar.color = Color.white;
+		} else
+			controlBar.color = greyed;
 
 		if (!chainStarted) 
 		{
@@ -107,6 +111,7 @@ public class TextingManager : MonoBehaviour {
 			currentTextIndex = newQuestionText.index;
 			activeTexts.Add (tp);
 			chainStarted = true;
+			auds.PlayOneShot (recieve);
 		}
 
 		if (chainStarted) 
@@ -136,6 +141,7 @@ public class TextingManager : MonoBehaviour {
 				}
 				GameObject newText = Instantiate (textObject) as GameObject; 
 				newText.transform.SetParent (personalCanvas);
+				auds.PlayOneShot (recieve);
 				TextProperties newTP = newText.GetComponent<TextProperties> (); 
 				if (checkAnswer ()) {
 					newTP.content = rt.rightContent;
@@ -156,6 +162,7 @@ public class TextingManager : MonoBehaviour {
 				}
 				GameObject newText = Instantiate (textObject) as GameObject; 
 				newText.transform.SetParent (personalCanvas);
+				auds.PlayOneShot (recieve);
 				TextProperties newTP = newText.GetComponent<TextProperties> (); 
 				if (checkAnswer ()) {
 					newTP.content = rt.rightContent;
@@ -272,6 +279,7 @@ public class TextingManager : MonoBehaviour {
 			tryingThis = 0;
 			acceptingInputs = false;
 			responded = true;
+			auds.PlayOneShot (send);
 		}
 		if (Input.GetKeyDown (KeyCode.RightArrow)) 
 		{
@@ -289,6 +297,7 @@ public class TextingManager : MonoBehaviour {
 			tryingThis = 1;
 			acceptingInputs = false;
 			responded = true;
+			auds.PlayOneShot (send);
 		}
 
 	}
