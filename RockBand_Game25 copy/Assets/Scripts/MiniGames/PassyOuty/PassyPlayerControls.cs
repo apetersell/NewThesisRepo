@@ -10,7 +10,10 @@ public class PassyPlayerControls : MonoBehaviour {
 	Detector detectBoxL; 
 	Detector detectBoxR;
 	Animator anim;
+	public BurstParticles[] particles;
 	bool hit;
+	float numberOfParticles;
+	public ScoreManager sm; 
 
 	void Awake ()
 	{
@@ -23,17 +26,15 @@ public class PassyPlayerControls : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-
+		//ScoreManager sm = (ScoreManager)FindObjectOfType (typeof(ScoreManager)); 
 		
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-
-		controls ();
 		anim.SetBool ("Hit", hit);
-		
+		controls ();
 	}
 
 	void controls () 
@@ -67,17 +68,21 @@ public class PassyPlayerControls : MonoBehaviour {
 		playerActive = true;
 		if (dir == 1) 
 		{
-			anim.SetTrigger ("Right");
 			if (detectBoxR.NPC != null) {
 				PassyNPC p = detectBoxR.NPC.GetComponent<PassyNPC> ();
 				if (p.active) {
 					p.gotFlier (true);
 					hit = true;
+					anim.SetTrigger ("RightHit");
+					particles [0].burst (Color.white, sm.particleNum);
+					particles [0].gameObject.GetComponent<NumberEffectGenerator> ().doEffect (sm.valueOfMatch);
 				} else {
 					hit = false;
+					anim.SetTrigger ("RightMiss");
 				}
 			} else {
 				hit = false;
+				anim.SetTrigger ("RightMiss");
 			}
 		}
 		if (dir == -1) 
@@ -88,11 +93,16 @@ public class PassyPlayerControls : MonoBehaviour {
 				if (p.active) {
 					p.gotFlier (true);
 					hit = true;
+					anim.SetTrigger ("LeftHit");
+					particles [1].burst (Color.white, sm.particleNum);
+					particles [1].gameObject.GetComponent<NumberEffectGenerator> ().doEffect (sm.valueOfMatch);
 				} else {
 					hit = false;
+					anim.SetTrigger ("LeftMiss");
 				}
 			} else {
 				hit = false;
+				anim.SetTrigger ("LeftMiss");
 			}
 		}
 	}

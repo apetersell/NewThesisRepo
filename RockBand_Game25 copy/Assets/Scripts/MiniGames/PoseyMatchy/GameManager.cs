@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour {
 	public int choreoPose = 1;
 	public Sprite good;
 	public Sprite bad;
+	public Sprite great;
 	public static ShuffleBag<int> poseBag; 
 	public float currentTimer;
 	public float maxTimer;
@@ -47,6 +48,10 @@ public class GameManager : MonoBehaviour {
 	bool leftC; 
 	bool rightC; 
 	SceneGuy sg;
+	public BurstParticles burst;
+	public NumberEffectGenerator numbers;
+	public Color particleColor;
+	float greatTimer;
 
 
 	void Awake () 
@@ -93,14 +98,19 @@ public class GameManager : MonoBehaviour {
 
 	void Update () 
 	{
+		greatTimer -= Time.deltaTime;
 		if (!SceneGuy.loadingScene)
 		handleAnimations ();
 		if (goodBad != null) {
 			gameTimer -= Time.deltaTime;
-			if (playerPose == choreoPose) {
-				goodBad.sprite = good;
+			if (greatTimer > 0) {
+				goodBad.sprite = great;
 			} else {
-				goodBad.sprite = bad;
+				if (playerPose == choreoPose) {
+					goodBad.sprite = good;
+				} else {
+					goodBad.sprite = bad;
+				}
 			}
 			if (theEnd == false) {
 				playerInput ();
@@ -222,6 +232,9 @@ public class GameManager : MonoBehaviour {
 			{
 				player.SetTrigger ("Hit");
 				sm.scorePoints(true);
+				burst.burst (particleColor, sm.particleNum);
+				greatTimer = 1;
+				numbers.doEffect (sm.valueOfMatch);
 			} 
 			else 
 			{

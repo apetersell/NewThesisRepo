@@ -36,7 +36,9 @@ public class ScoreManager : MonoBehaviour {
 	AudioSource auds;
    	private Clock clock;
 	public GameObject fanBar;
-
+	public int particleNum;
+	Color particleColor;
+	public ParticleSystem comboAura;
 	void Awake ()
 	{
 	   clock = Clock.Instance;
@@ -74,6 +76,8 @@ public class ScoreManager : MonoBehaviour {
 		}
 		determineRelationshipMulti ();
 		fanBar.SetActive (globe.performance);
+		ParticleSystem.MainModule ma = comboAura.main;
+		ma.startColor = new Color (particleColor.r, particleColor.g, particleColor.b); 
 	}
 
 	public void scorePoints (bool hit)
@@ -139,13 +143,21 @@ public class ScoreManager : MonoBehaviour {
 		valueOfMatch = (baseValue * multiplier) * relationshipMultiplier;
 		if (inARow < firstMulti) {
 			multiplier = 1;
+			particleNum = 10;
+			particleColor = Color.clear;
 		} else if (inARow >= firstMulti && inARow < secondMulti) {
-			multiplier = 2;
+			multiplier = 2f;
+			particleNum = 20;
+			particleColor = Color.white;
 		} else if (inARow >= secondMulti && inARow < thirdMulti) {
-			multiplier = 3;
+			multiplier = 2.5f;
+			particleNum = 30;
+			particleColor = Color.cyan;
 		} else if (inARow >= thirdMulti) 
 		{
-			multiplier = 4;
+			multiplier = 3;
+			particleNum = 40;
+			particleColor = Color.green;
 		}
 		if (inARow > streak) 
 		{
@@ -172,7 +184,7 @@ public class ScoreManager : MonoBehaviour {
 
 	void displayScores ()
 	{
-		float trueMulti = multiplier * relationshipMultiplier;
+		float trueMulti = Mathf.Round ((multiplier * relationshipMultiplier)*100) / 100;
 		if (!globe.performance) {
 			scoreDisplay.text = "Score: " + Mathf.Round (score).ToString (); 
 		} else {
@@ -218,7 +230,7 @@ public class ScoreManager : MonoBehaviour {
 	}
 
 
-	float multi (float score) 
+	public static float multi (float score) 
 	{
 		float result = 0;
 		if (score <= 20) {

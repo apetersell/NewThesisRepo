@@ -14,6 +14,8 @@ public class LineUnit : MonoBehaviour {
 	AudioSource auds;
 	HitEffect he;
 	GlobalManager globe;
+	BurstParticles burst;
+	NumberEffectGenerator neg;
 
 	// Use this for initialization
 	void Start () 
@@ -23,6 +25,8 @@ public class LineUnit : MonoBehaviour {
 		auds = GameObject.Find ("ScoreManager").GetComponent<AudioSource> ();
 //		he = GameObject.Find ("HitEffect").GetComponent<HitEffect> ();
 		globe = GameObject.Find ("GlobalStats").GetComponent<GlobalManager> ();
+		burst = GameObject.Find ("MusicBurst").GetComponent<BurstParticles> ();
+		neg = GameObject.Find ("Point").GetComponent<NumberEffectGenerator> ();
 	}
 	
 	// Update is called once per frame
@@ -53,6 +57,8 @@ public class LineUnit : MonoBehaviour {
 					{
 						hit = true;
 						sm.scorePoints (true);
+						burst.burst (scored, sm.particleNum);
+						neg.doEffect (sm.valueOfMatch);
 					}
 				} 
 				else 

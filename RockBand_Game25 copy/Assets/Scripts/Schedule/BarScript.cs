@@ -17,6 +17,11 @@ public class BarScript : MonoBehaviour {
 	public bool Lee;
 	public bool Aig;
 	public bool fanBar;
+	public static Color barBlue = new Color(0.42f, 0.81f, 0.96f,1);
+	public static Color barDark = new Color (0.63f, 0.49f, 0, 1);
+	public static Color barLight = new Color (1, 0.76f, 0, 1);
+	public static float lerpSpeed = 1;
+	Color lerpingColor;
 
 	// Use this for initialization
 	void Start () 
@@ -28,6 +33,7 @@ public class BarScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
+		lerpingColor = lerpingColor = Color.Lerp (barLight, barDark, Mathf.PingPong (Time.time * lerpSpeed, 1));  
 		if (stressBar) {
 			if (Dance) {
 				img.fillAmount = gm.DanceScore / StoryManager.statMeterFull;
@@ -45,6 +51,7 @@ public class BarScript : MonoBehaviour {
 				img.fillAmount = gm.totalFans / StoryManager.fanMileStone1;
 			}
 		}else {
+			colorHandle ();
 			if (Dance) {
 				img.fillAmount = gm.effectiveDance / StoryManager.statMeterFull;
 			} else if (Vocal) {
@@ -59,6 +66,17 @@ public class BarScript : MonoBehaviour {
 				}
 			} else if (Stress) {
 				img.fillAmount = gm.Stress / StoryManager.statMeterFull;
+			}
+		}
+	}
+
+	void colorHandle()
+	{
+		if (!Stress) {
+			if (img.fillAmount >= 1) {
+				img.color = lerpingColor;
+			} else {
+				img.color = barBlue;
 			}
 		}
 	}

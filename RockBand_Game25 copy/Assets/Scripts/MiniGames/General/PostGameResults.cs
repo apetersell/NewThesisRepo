@@ -59,6 +59,7 @@ public class PostGameResults : MonoBehaviour
 	public GameObject[] totalScores;
 	public GameObject continueButton;
 	public GameObject continueText;
+	Color lerpingColor;
 
 	// Use this for initialization
 	void Start () 
@@ -69,6 +70,7 @@ public class PostGameResults : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
+		lerpingColor = lerpingColor = Color.Lerp (BarScript.barLight, BarScript.barDark, Mathf.PingPong (Time.time * BarScript.lerpSpeed, 1));  
 		dateDisplay.text = globe.SOWstring;
 		if (Input.GetKeyDown (KeyCode.RightArrow)) 
 		{
@@ -92,6 +94,24 @@ public class PostGameResults : MonoBehaviour
 			danceStressBar.fillAmount = danceStressFill / StoryManager.statMeterFull;
 			vocalStressBar.fillAmount = vocalStressFill / StoryManager.statMeterFull;
 			prStressBar.fillAmount = prStressFill / StoryManager.statMeterFull;
+			if (danceBar.fillAmount >= 1) 
+			{
+				danceBar.color = lerpingColor;
+			} else {
+				danceBar.color = BarScript.barBlue;
+			}
+			if (vocalBar.fillAmount >= 1) 
+			{
+				vocalBar.color = lerpingColor;
+			} else {
+				vocalBar.color = BarScript.barBlue;
+			}
+			if (prBar.fillAmount >= 1) 
+			{
+				prBar.color = lerpingColor;
+			} else {
+				prBar.color = BarScript.barBlue;
+			}
 		}
 	}
 

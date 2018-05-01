@@ -11,6 +11,8 @@ public class UpAndDownHandler : MonoBehaviour {
 	float highestPosY, lowestPosY;
 	public int score = 0;
 	public Text txtScore;
+	public BurstParticles burst;
+	public Color particleColor; 
 
 	GlobalManager globe;
 	ScoreManager sm;
@@ -48,6 +50,7 @@ public class UpAndDownHandler : MonoBehaviour {
 		if(coll.GetComponent<SpriteRenderer>())
 		{
 			coll.GetComponent<SpriteRenderer>().color = GetComponent<SpriteRenderer>().color;
+			burst.burst (GetComponent<SpriteRenderer> ().color, 1);
 //			if (!globe.performance) 
 //			{
 //				sm.scorePoints (true);

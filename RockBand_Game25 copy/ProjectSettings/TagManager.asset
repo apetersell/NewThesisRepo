@@ -19,7 +19,7 @@ TagManager:
   - Wendy_mini
   - JPe-mini
   - Lee_mini
-  - 
+  - Effects
   - 
   - 
   - 
@@ -54,4 +54,7 @@ TagManager:
     locked: 0
   - name: mini-passyNPC
     uniqueID: 1389433429
+    locked: 0
+  - name: Effects
+    uniqueID: 2709403949
     locked: 0
