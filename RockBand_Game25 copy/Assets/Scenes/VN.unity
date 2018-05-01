@@ -15857,7 +15857,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layersDeep: 0
   fading: 0
-  endDate: 4
+  endDate: 5
   display: {fileID: 749774900}
   dialogueContainer: {fileID: 177895917}
   lineText: {fileID: 749774901}

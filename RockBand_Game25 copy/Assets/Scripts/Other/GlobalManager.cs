@@ -22,6 +22,7 @@ public class GlobalManager :  Singleton<GlobalManager>{
 
 	//Turn on in inspector when debugging minigames
 	public bool miniGameDebug;
+	public bool debugPerformance;
 
 	//Main Stats
 	public float DanceScore = 0;
@@ -220,14 +221,47 @@ public class GlobalManager :  Singleton<GlobalManager>{
 
 //		Debug.Log(currentIndex+"."+currentType.ToString()+" for		 "+maxGameTimer+"seconds");
 		//Loads game type depending on schedule list.
-		switch(currentType){
-		case UnitType.Dance:sg.transitionScene("PoseyMatchy");break;
-		case UnitType.Vocal:sg.transitionScene("PitchyMatchy");break;
-		case UnitType.PR:sg.transitionScene("PassOutFliers");break;
-		case UnitType.Rest:sg.transitionScene("PhonyResty");break;
-		case UnitType.TalkShow:sg.transitionScene("TalkeyShowey");break;
-		case UnitType.Songwriting:sg.transitionScene("SongyWritey");break;
-		case UnitType.StreetModeling:sg.transitionScene("DressyUppy");break;
+
+		if (performance) 
+		{
+			switch (currentType) 
+			{
+			case UnitType.Dance:
+				sg.transitionScene ("Posey_Concert");
+				break;
+			case UnitType.Vocal:
+				sg.transitionScene ("Pitchy_Concert");
+				break;
+			case UnitType.PR:
+				sg.transitionScene ("Passy_Concert");
+				break;
+			}
+		}
+		else 
+		{
+			switch (currentType) {
+			case UnitType.Dance:
+				sg.transitionScene ("PoseyMatchy");
+				break;
+			case UnitType.Vocal:
+				sg.transitionScene ("PitchyMatchy");
+				break;
+			case UnitType.PR:
+				sg.transitionScene ("PassOutFliers");
+				break;
+			case UnitType.Rest:
+				sg.transitionScene ("PhonyResty");
+				break;
+			case UnitType.TalkShow:
+				sg.transitionScene ("TalkeyShowey");
+				break;
+			case UnitType.Songwriting:
+				sg.transitionScene ("SongyWritey");
+				break;
+			case UnitType.StreetModeling:
+				sg.transitionScene ("DressyUppy");
+				break;
+			}
 		}
 	}
 

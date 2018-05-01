@@ -73,17 +73,17 @@ public class ComboFlash : MonoBehaviour
 		{
 			aigFlashIndex = 0;
 		}
-		if (sm.inARow >= sm.firstMulti && aigFlashIndex == 0) 
+		if (sm.inARow >= ScoreManager.firstMulti && aigFlashIndex == 0) 
 		{
 			doFlash (aigFlashIndex, 2f);
 			aigFlashIndex = 1; 
 		}
-		if (sm.inARow >= sm.secondMulti && aigFlashIndex == 1) 
+		if (sm.inARow >= ScoreManager.secondMulti && aigFlashIndex == 1) 
 		{
 			doFlash (aigFlashIndex, 2.5f);
 			aigFlashIndex = 2; 
 		}
-		if (sm.inARow >= sm.thirdMulti && aigFlashIndex == 2) 
+		if (sm.inARow >= ScoreManager.thirdMulti && aigFlashIndex == 2) 
 		{
 			doFlash (aigFlashIndex, 3);
 			aigFlashIndex = 3; 

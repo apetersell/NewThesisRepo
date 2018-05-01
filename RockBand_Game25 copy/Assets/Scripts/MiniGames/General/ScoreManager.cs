@@ -12,9 +12,9 @@ public class ScoreManager : MonoBehaviour {
 	Text inARowDisplay;
 	public float score; //Your score
 	public float baseValue; //How much is a match worth before multipliers
-	public float firstMulti; //How many notes do you need to hit in a row before multipliers
-	public float secondMulti; 
-	public float thirdMulti;  
+	public static float firstMulti = 10; //How many notes do you need to hit in a row before multipliers
+	public static float secondMulti = 25; 
+	public static float thirdMulti = 50;  
 	public float multiplier = 1; //How much you score is multlipied by this number
 	public float hits;
 	public float misses;
@@ -109,13 +109,13 @@ public class ScoreManager : MonoBehaviour {
 				}
 				inARow++;
 				hits++;
-				if (globe.performance) {
-					auds.clip = fanSound;
-					auds.PlayScheduled (clock.AtNextSixteenth ());
-				} else {
-					auds.clip = hitSound;
-					auds.PlayScheduled (clock.AtNextSixteenth ());
-				}
+//				if (globe.performance) {
+//					auds.clip = fanSound;
+//					auds.PlayScheduled (clock.AtNextSixteenth ());
+//				} else {
+//					auds.clip = hitSound;
+//					auds.PlayScheduled (clock.AtNextSixteenth ());
+//				}
 				if (inARow == firstMulti) {
 					auds.clip = smallCheer;
 					auds.PlayScheduled (clock.AtNextSixteenth ());

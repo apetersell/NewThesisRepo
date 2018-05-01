@@ -209,7 +209,7 @@ public class StoryManager : MonoBehaviour {
 		} else if (dayIndex == 4) {
 			result = "Day4";
 		} else if (dayIndex == 5) {
-			result = "";
+			result = "Day5";
 		}
 		return result;
 	}
