@@ -62,7 +62,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4026775135497024
 Transform:
   m_ObjectHideFlags: 1
@@ -160,17 +160,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cce46cce20310456fad0921ceffdbfa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprites:
-  - {fileID: 21300000, guid: 1af788765032e450bb8b66564bdcb109, type: 3}
-  - {fileID: 21300004, guid: 1af788765032e450bb8b66564bdcb109, type: 3}
-  - {fileID: 21300002, guid: 1af788765032e450bb8b66564bdcb109, type: 3}
-  - {fileID: 21300000, guid: 1af788765032e450bb8b66564bdcb109, type: 3}
   active: 1
   hasFlier: 0
   startPos: {x: 10.55, y: -2.153, z: 0}
   endPos: {x: -10.55, y: -2.153, z: 0}
   speed: 0
-  exclaim: {fileID: 0}
 --- !u!114 &114572996419934342
 MonoBehaviour:
   m_ObjectHideFlags: 1
