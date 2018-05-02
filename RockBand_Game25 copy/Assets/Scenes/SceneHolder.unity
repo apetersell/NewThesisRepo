@@ -2399,8 +2399,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed3d74962c6e74eff8e12ffa5d9677f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debut: 010000000200000001000000020000000300000002000000030000000200000001000000020000000100000003000000
-  debutUnitTimes: 08000000090000000500000005000000090000000a000000040000000400000005000000050000000d00000005000000
+  debut: 030000000200000001000000
+  debutUnitTimes: 3c0000003c0000003c000000
   performanceSongs:
   - {fileID: 8300000, guid: ca2d3793dc2df4db69eeda0e9b3213ac, type: 3}
 --- !u!114 &2118872827
@@ -2546,7 +2546,6 @@ MonoBehaviour:
   scenesVisited: []
   nodesVisited: []
   miniGameDebug: 0
-  debugPerformance: 0
   DanceScore: 0
   VocalScore: 0
   PRScore: 0
@@ -2593,7 +2592,7 @@ MonoBehaviour:
   SOWstring: 
   isStopped: 0
   performance: 0
-  performanceDates: 04000000
+  performanceDates: 01000000
   numberOfFansRequired: 1000
   dayIndex: 0
   testText: {fileID: 4900000, guid: e58626cad57584fc185619ea2553dabd, type: 3}

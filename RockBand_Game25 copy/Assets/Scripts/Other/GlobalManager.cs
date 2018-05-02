@@ -22,7 +22,6 @@ public class GlobalManager :  Singleton<GlobalManager>{
 
 	//Turn on in inspector when debugging minigames
 	public bool miniGameDebug;
-	public bool debugPerformance;
 
 	//Main Stats
 	public float DanceScore = 0;

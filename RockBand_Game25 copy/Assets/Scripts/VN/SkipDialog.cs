@@ -5,17 +5,24 @@ using UnityEngine.SceneManagement;
 
 public class SkipDialog : MonoBehaviour {
 
+	GlobalManager globe;
+
 	// Use this for initialization
-	void Start () {
-		
+	void Start () 
+	{
+		globe = (GlobalManager)FindObjectOfType(typeof(GlobalManager));
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if(Input.GetKeyDown(KeyCode.Escape))
 		{
-			SceneGuy sg = GameObject.Find ("GlobalStats").GetComponent<SceneGuy> ();
-			sg.transitionScene ("Main");
+			if (!globe.performance) {
+				SceneGuy sg = GameObject.Find ("GlobalStats").GetComponent<SceneGuy> ();
+				sg.transitionScene ("Main");
+			} else {
+				globe.StartMiniGaming ();
+			}
 		}
 	}
 }

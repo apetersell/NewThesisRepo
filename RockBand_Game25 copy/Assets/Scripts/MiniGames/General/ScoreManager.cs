@@ -35,16 +35,12 @@ public class ScoreManager : MonoBehaviour {
 	GlobalManager globe;
 	AudioSource auds;
    	private Clock clock;
-	public GameObject fanBar;
 	public int particleNum;
 	Color particleColor;
 	public ParticleSystem comboAura;
 	void Awake ()
 	{
 	   clock = Clock.Instance;
-		if (game == "PR" || game == "Sing" || game == "Dance") {
-			fanBar = GameObject.Find ("FanBar");
-		}
 	}
 
 	// Use this for initialization
@@ -75,7 +71,6 @@ public class ScoreManager : MonoBehaviour {
 			displayScores ();
 		}
 		determineRelationshipMulti ();
-		fanBar.SetActive (globe.performance);
 		ParticleSystem.MainModule ma = comboAura.main;
 		ma.startColor = new Color (particleColor.r, particleColor.g, particleColor.b); 
 	}
@@ -109,13 +104,13 @@ public class ScoreManager : MonoBehaviour {
 				}
 				inARow++;
 				hits++;
-//				if (globe.performance) {
-//					auds.clip = fanSound;
-//					auds.PlayScheduled (clock.AtNextSixteenth ());
-//				} else {
-//					auds.clip = hitSound;
-//					auds.PlayScheduled (clock.AtNextSixteenth ());
-//				}
+				if (globe.performance) {
+					auds.clip = fanSound;
+					auds.PlayScheduled (clock.AtNextSixteenth ());
+				} else {
+					auds.clip = hitSound;
+					auds.PlayScheduled (clock.AtNextSixteenth ());
+				}
 				if (inARow == firstMulti) {
 					auds.clip = smallCheer;
 					auds.PlayScheduled (clock.AtNextSixteenth ());
