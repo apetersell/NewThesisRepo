@@ -9,6 +9,12 @@ public class DateDisplay : MonoBehaviour
 	string display;
 	string first;
 	string second;
+	GlobalManager globe;
+
+	void Start ()
+	{
+		globe = (GlobalManager)FindObjectOfType(typeof(GlobalManager));
+	}
 
 	void Update () 
 	{
@@ -17,7 +23,11 @@ public class DateDisplay : MonoBehaviour
 		if (schedule) {
 			display = first + " - " + second;
 		} else {
-			display = first;
+			if (globe.performance && globe.myState == PlayerState.miniGaming) {
+				display = "Concert";
+			} else {
+				display = first;
+			}
 		}
 		GetComponent<Text>().text = display;
 	}

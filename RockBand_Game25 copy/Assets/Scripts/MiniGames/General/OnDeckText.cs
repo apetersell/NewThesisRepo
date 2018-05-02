@@ -14,7 +14,17 @@ public class OnDeckText : MonoBehaviour {
 		globe = (GlobalManager)FindObjectOfType(typeof(GlobalManager));
 		if (globe != null) 
 		{
-			GetComponent<Text>().text = "Next: " + globe.NextActivity;
+			if (globe.performance) 
+			{
+				if (globe.NextActivity == "End of the Week") {
+					GetComponent<Text> ().text = "Finish";
+				} else {
+					GetComponent<Text> ().text = "Concert";
+				}
+			} 
+			else {
+				GetComponent<Text> ().text = "Next: " + globe.NextActivity;
+			}
 		}
 	}
 	// Update is called once per frame

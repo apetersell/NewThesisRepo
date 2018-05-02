@@ -35,6 +35,7 @@ public class ScoreManager : MonoBehaviour {
 	GlobalManager globe;
 	AudioSource auds;
    	private Clock clock;
+
 	public int particleNum;
 	Color particleColor;
 	public ParticleSystem comboAura;
@@ -183,7 +184,7 @@ public class ScoreManager : MonoBehaviour {
 		if (!globe.performance) {
 			scoreDisplay.text = "Score: " + Mathf.Round (score).ToString (); 
 		} else {
-			scoreDisplay.text = "FansPerHit: " + performancePointValue ().ToString ();
+			scoreDisplay.text = "Value: " + performancePointValue ().ToString ();
 		}
 		multiplierDisplay.text = "Multiplier: x" + trueMulti.ToString (); 
 		inARowDisplay.text = "Combo: " + inARow.ToString (); 
