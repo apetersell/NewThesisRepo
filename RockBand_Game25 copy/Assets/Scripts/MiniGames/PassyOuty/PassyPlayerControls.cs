@@ -75,7 +75,7 @@ public class PassyPlayerControls : MonoBehaviour {
 					hit = true;
 					anim.SetTrigger ("RightHit");
 					particles [0].burst (Color.white, sm.particleNum);
-					particles [0].gameObject.GetComponent<NumberEffectGenerator> ().doEffect (sm.valueOfMatch);
+					particles [0].gameObject.GetComponent<NumberEffectGenerator> ().doEffect (sm.sendToNumbers);
 				} else {
 					hit = false;
 					anim.SetTrigger ("RightMiss");
@@ -95,7 +95,7 @@ public class PassyPlayerControls : MonoBehaviour {
 					hit = true;
 					anim.SetTrigger ("LeftHit");
 					particles [1].burst (Color.white, sm.particleNum);
-					particles [1].gameObject.GetComponent<NumberEffectGenerator> ().doEffect (sm.valueOfMatch);
+					particles [1].gameObject.GetComponent<NumberEffectGenerator> ().doEffect (sm.sendToNumbers);
 				} else {
 					hit = false;
 					anim.SetTrigger ("LeftMiss");

@@ -52,6 +52,8 @@ public class GameManager : MonoBehaviour {
 	public NumberEffectGenerator numbers;
 	public Color particleColor;
 	float greatTimer;
+	bool jpInit;
+	bool leeInit; 
 
 
 	void Awake () 
@@ -98,6 +100,34 @@ public class GameManager : MonoBehaviour {
 
 	void Update () 
 	{
+		if (jPeAnim == null) 
+		{
+			jPeAnim = GameObject.Find ("obj_JP").GetComponent<Animator> ();
+		}
+		if (leeAnim == null) {
+			leeAnim = GameObject.Find ("obj_Lee").GetComponent<Animator> ();
+		}
+
+		if (!jpInit && globe.JPPresent) 
+		{
+			if (jPeAnim != null) 
+			{
+				jPeAnim.SetTrigger ("doPose");
+				jpInit = true;
+				Debug.Log ("JP DID POSE");
+			}
+		}
+
+		if (!leeInit && globe.LeePresent) 
+		{
+			if (leeAnim != null) 
+			{
+				leeAnim.SetTrigger ("doPose");
+				leeInit = true;
+				Debug.Log ("LEE DID POSE");
+			}
+		}
+
 		greatTimer -= Time.deltaTime;
 		if (!SceneGuy.loadingScene)
 		handleAnimations ();
@@ -234,7 +264,7 @@ public class GameManager : MonoBehaviour {
 				sm.scorePoints(true);
 				burst.burst (particleColor, sm.particleNum);
 				greatTimer = 1;
-				numbers.doEffect (sm.valueOfMatch);
+				numbers.doEffect (sm.sendToNumbers);
 			} 
 			else 
 			{

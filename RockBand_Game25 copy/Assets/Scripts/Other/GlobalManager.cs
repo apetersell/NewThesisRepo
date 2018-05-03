@@ -380,7 +380,10 @@ public class GlobalManager :  Singleton<GlobalManager>{
 
 			if (currentGame != UnitType.Rest && !isStopped) 
 			{
-				handleStressIncrease ();
+				if (!performance) 
+				{
+					handleStressIncrease ();
+				}
 			}
 
 			if (LeeImage != null) 
@@ -427,7 +430,11 @@ public class GlobalManager :  Singleton<GlobalManager>{
 					{ // If We're done with the current schedule.
 						if (!isStopped) 
 						{
-							GameObject.Find ("PGScreen").GetComponent<PostGameResults> ().startPostGame ();	
+							if (!performance) {
+								GameObject.Find ("PGScreen").GetComponent<PostGameResults> ().startPostGame ();	
+							} else {
+								GameObject.Find ("PGScreen_Concert").GetComponent<PostGameResultsDebut> ().startPostGame ();	
+							}
 							isStopped = true;
 						}
 					}

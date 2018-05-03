@@ -34,7 +34,6 @@ public class FriendMeterEffect : MonoBehaviour {
 	void Update () 
 	{
 		meter.fillAmount = fillAmount / 100;
-		Debug.Log (meter.fillAmount);
 	}
 
 	public void startProcess (bool happy, string name, float value)

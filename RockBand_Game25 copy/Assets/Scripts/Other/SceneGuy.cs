@@ -10,6 +10,7 @@ public class SceneGuy : MonoBehaviour {
 	public GameObject leftScreen;
 	public GameObject rightScreen;
 	public GameObject minigameSchedule;
+	public GameObject fanBar;
 	public static bool loadingScene;
 	AsyncOperation async; 
 	AsyncOperation unloader;
@@ -58,6 +59,10 @@ public class SceneGuy : MonoBehaviour {
 			minigameSchedule.SetActive (true);
 			minigameSchedule.GetComponent<MidGameSchedule> ().makeDummySchedule ();
 		}
+		if (gm.performance && nextScene != "VN") 
+		{
+			fanBar.SetActive (true);
+		}
 		StartCoroutine (loadErOnUp());
 	}
 
@@ -88,6 +93,7 @@ public class SceneGuy : MonoBehaviour {
 	{
 		yield return new WaitForSeconds (transitionSpeed);
 		minigameSchedule.SetActive (false);
+		fanBar.SetActive (false);
 		leftScreen.transform.DOMove (screenPositions [0].position, transitionSpeed);
 		rightScreen.transform.DOMove (screenPositions [2].position, transitionSpeed);
 		SceneManager.SetActiveScene (SceneManager.GetSceneByName (nextScene));

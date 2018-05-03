@@ -58,7 +58,7 @@ public class LineUnit : MonoBehaviour {
 						hit = true;
 						sm.scorePoints (true);
 						burst.burst (scored, sm.particleNum);
-						neg.doEffect (sm.valueOfMatch);
+						neg.doEffect (sm.sendToNumbers);
 					}
 				} 
 				else 

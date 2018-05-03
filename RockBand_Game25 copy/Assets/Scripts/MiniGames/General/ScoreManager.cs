@@ -36,6 +36,8 @@ public class ScoreManager : MonoBehaviour {
 	AudioSource auds;
    	private Clock clock;
 
+	public string sendToNumbers;
+
 	public int particleNum;
 	Color particleColor;
 	public ParticleSystem comboAura;
@@ -74,6 +76,17 @@ public class ScoreManager : MonoBehaviour {
 		determineRelationshipMulti ();
 		ParticleSystem.MainModule ma = comboAura.main;
 		ma.startColor = new Color (particleColor.r, particleColor.g, particleColor.b); 
+		if (globe.performance) 
+		{
+			int rounded = Mathf.RoundToInt (performancePointValue ());
+			if (rounded <= 0) 
+			{
+				rounded = 1;
+			}
+			sendToNumbers = "+" + rounded.ToString () + " fans";
+		} else {
+			sendToNumbers = "+" + valueOfMatch.ToString();
+		}
 	}
 
 	public void scorePoints (bool hit)
@@ -184,7 +197,7 @@ public class ScoreManager : MonoBehaviour {
 		if (!globe.performance) {
 			scoreDisplay.text = "Score: " + Mathf.Round (score).ToString (); 
 		} else {
-			scoreDisplay.text = "Value: " + performancePointValue ().ToString ();
+			scoreDisplay.text = "Value: " + performancePointValue();
 		}
 		multiplierDisplay.text = "Multiplier: x" + trueMulti.ToString (); 
 		inARowDisplay.text = "Combo: " + inARow.ToString (); 
@@ -221,6 +234,10 @@ public class ScoreManager : MonoBehaviour {
 		}
 
 		result = Mathf.Round((stat * multiplier) * relationshipMultiplier); 
+		if (result <= 1) 
+		{
+			result = 1;
+		}
 
 		return result;
 	}

@@ -48,6 +48,7 @@ public class ExampleDialogueUI : Yarn.Unity.DialogueUIBehaviour
 		public bool fading; 
 		public int endDate;
 		public GameObject display;
+		public PreConcert preConcert;
 		SceneGuy sg;
 
 		//Yarn Command used to set the number of node layers in VN scenes.
@@ -284,16 +285,16 @@ public class ExampleDialogueUI : Yarn.Unity.DialogueUIBehaviour
 			{
 				if (gm) 
 				{
-					gm.myState = PlayerState.timescheduling;
 					if (gm.dayIndex >= endDate) 
 					{
 						sg.transitionScene("End");
 					} else if (gm.performance)
 					{
-						gm.StartMiniGaming ();
+						preConcert.startPreConcert ();
 					}
 					else
 					{
+						gm.myState = PlayerState.timescheduling;
 						sg.transitionScene("Main");
 						gm.saveStartofWeekScores (gm.gameObject.GetComponent<CalendarTracker>().displayDate + " - " + gm.gameObject.GetComponent<CalendarTracker>().oneWeeklater);
 					}

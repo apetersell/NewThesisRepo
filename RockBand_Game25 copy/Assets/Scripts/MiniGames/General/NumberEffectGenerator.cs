@@ -16,13 +16,12 @@ public class NumberEffectGenerator : MonoBehaviour {
 		
 	}
 
-	public void doEffect(float value)
+	public void doEffect(string value)
 	{
-		int rounded = Mathf.RoundToInt (value);
 		GameObject newEffect = Instantiate (effect) as GameObject;
 		newEffect.GetComponent<Renderer> ().sortingLayerName = "Effects";
 		newEffect.transform.position = this.transform.position;
 		newEffect.GetComponent<TextMesh> ().color = color;
-		newEffect.GetComponent<TextMesh> ().text = "+" + rounded.ToString ();
+		newEffect.GetComponent<TextMesh> ().text = value;
 	}
 }
