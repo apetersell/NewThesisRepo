@@ -370,7 +370,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &46432104
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5169,7 +5169,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &971005247
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8298,7 +8298,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1519046316
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9331,7 +9331,6 @@ MonoBehaviour:
   isStopped: 0
   performance: 0
   performanceDates: 
-  numberOfFansRequired: 0
   dayIndex: 0
   testText: {fileID: 0}
   timePerUnit: 0

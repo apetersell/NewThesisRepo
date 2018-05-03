@@ -87,7 +87,6 @@ public class GlobalManager :  Singleton<GlobalManager>{
 	//Peformance Stuff
 	public bool performance; //Tells the manager whether or not we are currently in a performance.
 	public List <int> performanceDates = new List<int>();  //All the specific days that there will be performances.
-	public float numberOfFansRequired; //The number of fans required to pass the current phase.
 
 	//Gets access to the VN text assets;
 	public int dayIndex = 0;
@@ -489,7 +488,7 @@ public class GlobalManager :  Singleton<GlobalManager>{
 	public void loadVNScene()
 	{
 		scheduleList.Clear ();
-		sceneToLoad = StoryManager.determineScene (dayIndex, effectiveDance, effectiveVocal, effectivePR, Stress, jPeRelationship, leeRelationship, SongWriteScore, ModelScore, TVScore);
+		sceneToLoad = StoryManager.determineScene (dayIndex, effectiveDance, effectiveVocal, effectivePR, Stress, jPeRelationship, leeRelationship, SongWriteScore, ModelScore, TVScore, AigFans);
 		if (!StoryManager.scenesVisited.Contains (currentTextAsset.name)) 
 		{
 			StoryManager.scenesVisited.Add (currentTextAsset.name);

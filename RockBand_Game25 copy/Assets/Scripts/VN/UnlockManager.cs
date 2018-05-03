@@ -67,6 +67,10 @@ public class UnlockManager : MonoBehaviour {
 			appear ();
 			talkShowUnlocked = true;
 			break;
+		case "XIX":
+			spriteToBe = unlockMessges [4];
+			appear ();
+			break;
 		}
 	}
 

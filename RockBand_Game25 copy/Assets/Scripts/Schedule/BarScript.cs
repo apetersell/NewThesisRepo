@@ -20,6 +20,7 @@ public class BarScript : MonoBehaviour {
 	public static Color barBlue = new Color(0.42f, 0.81f, 0.96f,1);
 	public static Color barDark = new Color (0.63f, 0.49f, 0, 1);
 	public static Color barLight = new Color (1, 0.76f, 0, 1);
+	public static Color barFanPassed = new Color (.42f, .96f, .45f);
 	public static float lerpSpeed = 1;
 	Color lerpingColor;
 
@@ -43,12 +44,13 @@ public class BarScript : MonoBehaviour {
 				img.fillAmount = gm.PRScore / StoryManager.statMeterFull;
 			}
 		} else if (fanBar) {
+			colorHandleFanBar ();
 			if (Aig) {
-				img.fillAmount = gm.AigFans / StoryManager.fanMileStone1;
+				img.fillAmount = gm.AigFans / StoryManager.fanFlyingColors1;
 			} else if (JP) {
-				img.fillAmount = (gm.AigFans + gm.JPFans) / StoryManager.fanMileStone1;
+				img.fillAmount = (gm.AigFans + gm.JPFans) / StoryManager.fanFlyingColors1;
 			} else if (Lee) {
-				img.fillAmount = gm.totalFans / StoryManager.fanMileStone1;
+				img.fillAmount = gm.totalFans / StoryManager.fanFlyingColors1;
 			}
 		}else {
 			colorHandle ();
@@ -78,6 +80,17 @@ public class BarScript : MonoBehaviour {
 			} else {
 				img.color = barBlue;
 			}
+		}
+	}
+
+	void colorHandleFanBar()
+	{
+		if (img.fillAmount >= (StoryManager.fanPassing1 / StoryManager.fanFlyingColors1) && img.fillAmount < 1) {
+			img.color = barFanPassed;
+		} else if (img.fillAmount >= 1) {
+			img.color = lerpingColor;
+		} else {
+			img.color = barBlue;
 		}
 	}
 }

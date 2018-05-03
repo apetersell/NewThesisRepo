@@ -18,7 +18,9 @@ public class StoryManager : MonoBehaviour {
 	public static float statMeterFull = 1000f;
 	public static float statHighThresh1 = 500f;
 	public static float statLowThresh1 = 500;
-	public static float fanMileStone1 = 5000;
+	public static float fanFlyingColors1 = 2000;
+	public static float fanPassing1 = 1000;
+	public static float aigFans; 
 
 	//Bools indicating whether a sideroute has been unlocked.
 	public static bool friendshipUnlocked = false;
@@ -30,8 +32,8 @@ public class StoryManager : MonoBehaviour {
 	public static string friendshipRoute = null;
 
 	//Indicates when you can unlock side routes.
-	public static float friendshipRouteDecideDay = 5;
-	public static float careerRoutesCanBeUnlocked = 5;
+	public static float friendshipRouteDecideDay = 6;
+	public static float careerRoutesCanBeUnlocked = 6;
 	public static bool allCareersUnlocked; 
 
 	//Separate Indexes keeping track of where the player is in each of the side routes.
@@ -66,6 +68,7 @@ public class StoryManager : MonoBehaviour {
 		songwriteScore = 0;
 		modelScore = 0;
 		tvScore = 0;
+		aigFans = 0;
 		scenesVisited.Clear ();
 		nodesVisited.Clear ();
 		savedStates.Clear ();
@@ -121,7 +124,7 @@ public class StoryManager : MonoBehaviour {
 	}
 
 	//Updates the local reference to stats;
-	public static void updateStats (float dance, float vocal, float pr, float stress, float jPe, float lee, float songwrite, float model, float tv)
+	public static void updateStats (float dance, float vocal, float pr, float stress, float jPe, float lee, float songwrite, float model, float tv, float fans)
 	{
 		danceScore = dance;
 		vocalScore = vocal;
@@ -132,12 +135,13 @@ public class StoryManager : MonoBehaviour {
 		songwriteScore = songwrite;
 		modelScore = model;
 		tvScore = tv;
+		aigFans = fans;
 	}
 
 	//Returns the VN scene to load.
-	public static string determineScene(float dayIndex, float dance, float vocal, float pr, float stress, float jPe, float lee, float songwrite, float model, float tv)
+	public static string determineScene(float dayIndex, float dance, float vocal, float pr, float stress, float jPe, float lee, float songwrite, float model, float tv, float fans)
 	{
-		updateStats (dance, vocal, pr, stress, jPe, lee, songwrite, model, tv);
+		updateStats (dance, vocal, pr, stress, jPe, lee, songwrite, model, tv, fans);
 		string result = null;
 
 		//Priority 1: Unlock Friendship Route on Frienship Route Unlock Day.
@@ -209,7 +213,7 @@ public class StoryManager : MonoBehaviour {
 		} else if (dayIndex == 4) {
 			result = "Day4";
 		} else if (dayIndex == 5) {
-			result = "Day5";
+			result = DayFive ();
 		}
 		return result;
 	}
@@ -461,6 +465,24 @@ public class StoryManager : MonoBehaviour {
 			}
 		}
 
+		return result;
+	}
+
+	static string DayFive()
+	{
+		string result = ""; 
+		if (aigFans >= fanFlyingColors1) 
+		{
+			result = "Day5Great";
+		}
+		else if (aigFans >= fanPassing1 && aigFans < fanFlyingColors1)
+		{
+			result = "Day5Pass";
+		}
+		else 
+		{
+			result = "Day5Fail";
+		}
 		return result;
 	}
 }

@@ -34,6 +34,7 @@ public class PostGameResultsDebut : MonoBehaviour {
 	string numberDispay;
 	public float passingGrade; 
 	public float fadeInTime;
+	Color lerpingColor; 
 	AudioSource auds;
 
 	// Use this for initialization
@@ -46,6 +47,7 @@ public class PostGameResultsDebut : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{ 
+		//lerpingColor = lerpingColor = Color.Lerp (BarScript.barLight, BarScript.barDark, Mathf.PingPong (Time.time * BarScript.lerpSpeed, 1));   
 		if (Input.GetKeyDown (KeyCode.RightArrow)) 
 		{
 			if (didFinalJudgement) {
@@ -59,7 +61,9 @@ public class PostGameResultsDebut : MonoBehaviour {
 			timedEvents ();
 		}
 
-		fanBar.fillAmount = fanFillAmount / StoryManager.fanMileStone1;
+		fanBar.fillAmount = fanFillAmount / StoryManager.fanFlyingColors1;
+		passingGrade = StoryManager.fanPassing1;
+
 	}
 
 	void stringDisplays()
@@ -68,11 +72,11 @@ public class PostGameResultsDebut : MonoBehaviour {
 		{
 			judgeText = "Uh...";
 		}
-		if (globe.AigFans >= passingGrade && globe.AigFans < StoryManager.fanMileStone1) 
+		if (globe.AigFans >= passingGrade && globe.AigFans < StoryManager.fanFlyingColors1) 
 		{
 			judgeText = "Nice!";
 		}
-		if (globe.AigFans >= StoryManager.fanMileStone1) 
+		if (globe.AigFans >= StoryManager.fanFlyingColors1) 
 		{
 			judgeText = "OUTSTANDING!";
 		}
@@ -139,11 +143,11 @@ public class PostGameResultsDebut : MonoBehaviour {
 		{
 			auds.PlayOneShot(sounds[0]);
 		}
-		if (globe.AigFans >= passingGrade && globe.AigFans < StoryManager.fanMileStone1) 
+		if (globe.AigFans >= passingGrade && globe.AigFans < StoryManager.fanFlyingColors1) 
 		{
 			auds.PlayOneShot(sounds[1]);
 		}
-		if (globe.AigFans >= StoryManager.fanMileStone1) 
+		if (globe.AigFans >= StoryManager.fanFlyingColors1) 
 		{
 			auds.PlayOneShot(sounds[2]);
 		}

@@ -106,7 +106,7 @@ public class ScoreManager : MonoBehaviour {
 					if (globe != null) {
 						if (game == "PR" || game == "Talk Show") {
 							globe.PRScore += valueOfMatch;
-							globe.AigFans++;
+//							globe.AigFans++;
 						}
 						if (game == "Sing" || game == "Songwriting") {
 							globe.VocalScore += valueOfMatch;
