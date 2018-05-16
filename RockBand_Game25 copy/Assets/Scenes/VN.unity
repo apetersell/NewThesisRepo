@@ -11966,7 +11966,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: bae8bc25065544fea8e4c42797a9d07d, type: 3}
   full: {x: 1, y: 1, z: 1}
   speed: 0.12
-  unlockSound: {fileID: 8300000, guid: f2cfae90260cd4f79ab13c37f44d7667, type: 3}
+  unlockSound: {fileID: 8300000, guid: 8b8184420013e484a9b9eca8ad5cf856, type: 3}
 --- !u!82 &808495898
 AudioSource:
   m_ObjectHideFlags: 0
@@ -15709,7 +15709,7 @@ MonoBehaviour:
   performance: 0
   performanceDates: 
   dayIndex: 0
-  testText: {fileID: 4900000, guid: 4eb2d6e299cbe471483a2ad720b85413, type: 3}
+  testText: {fileID: 4900000, guid: eafa9d39f8b774a9aaa978bf5273ef0d, type: 3}
   timePerUnit: 0
   countDown: {fileID: 8300000, guid: 855fff2b168654637b72e4ba084029e8, type: 3}
   maxGameTimer: 0

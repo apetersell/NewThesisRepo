@@ -121,14 +121,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be0f8d544aa634b5bb333b29a5edb0d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  happyFace: {fileID: 21300000, guid: 8eb3f3e1c4ab544e195c725556661bf3, type: 3}
-  angryFace: {fileID: 21300000, guid: 0be5d31b03d8c4e29a420f47ee6bf329, type: 3}
+  happyFaceJPe: {fileID: 21300000, guid: 3a3c9a0e4e93644cea63084384f96f65, type: 3}
+  angryFaceJpe: {fileID: 21300000, guid: f4dff777c173345e8affea676d2d8b96, type: 3}
+  happyFaceLee: {fileID: 21300000, guid: fc059368202e345628028f2515b937da, type: 3}
+  angryFaceLee: {fileID: 21300000, guid: 4f64950f468b042afab142fe2279e441, type: 3}
   happy: 1
   speed: 5
-  happySound: {fileID: 8300000, guid: f2cfae90260cd4f79ab13c37f44d7667, type: 3}
-  angrySound: {fileID: 8300000, guid: 51fae092e3f1b457db6f955ffe01f0b0, type: 3}
+  happySound: {fileID: 8300000, guid: d416dfed659714c1f9b21ef349a415be, type: 3}
+  angrySound: {fileID: 8300000, guid: 9258333850bdb40989b3709a274253d3, type: 3}
   scaleTime: 0.3
-  expandedScale: 3
+  expandedScale: 8
   fadeTime: 1
 --- !u!114 &114734543411336492
 MonoBehaviour:
@@ -170,7 +172,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1401008149565428}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 459.99, y: 89.79, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

@@ -2701,6 +2701,7 @@ GameObject:
   - component: {fileID: 2118872827}
   - component: {fileID: 2118872826}
   - component: {fileID: 2118872832}
+  - component: {fileID: 2118872833}
   m_Layer: 0
   m_Name: GlobalStats
   m_TagString: Untagged
@@ -2764,6 +2765,7 @@ MonoBehaviour:
   titleMusic: {fileID: 8300000, guid: 7bf795580fd7748a49e647f2884418b9, type: 3}
   scheduleMusic: {fileID: 8300000, guid: 35ad22d31ff204152b20b7508d40f0fd, type: 3}
   selectedTrack: {fileID: 8300000, guid: 4a1c99c3af6484c1ea9dad6a497a9c72, type: 3}
+  selectedTrackVN: {fileID: 0}
   VNMusic:
   - {fileID: 8300000, guid: de14cdb83c1fe47bf9aa7c716db2a6f0, type: 3}
   - {fileID: 8300000, guid: 00b5f303ef25848ba9b059f72b5add94, type: 3}
@@ -2785,7 +2787,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -2918,7 +2920,7 @@ MonoBehaviour:
   dayIndex: 0
   testText: {fileID: 4900000, guid: e58626cad57584fc185619ea2553dabd, type: 3}
   timePerUnit: 0
-  countDown: {fileID: 8300000, guid: 855fff2b168654637b72e4ba084029e8, type: 3}
+  countDown: {fileID: 8300000, guid: 5b8e64bfe2fde4425b12fcb475d58612, type: 3}
   maxGameTimer: 0
   currentIndex: 0
   currentGameTime: 0
@@ -2966,3 +2968,16 @@ MonoBehaviour:
   fanBar: {fileID: 113042757}
   transitionSpeed: 0.25
   visible: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &2118872833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2118872825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8c4c3d20eaf84e8e9b1036233db678d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  usual: {fileID: 2800000, guid: 6897ee197b1234022bfb42b6c2abccf3, type: 3}
+  hotSpot: {x: -1, y: 1}
