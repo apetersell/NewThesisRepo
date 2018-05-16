@@ -15,7 +15,10 @@ public class BurstParticles : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		
+		if (Input.GetKeyDown (KeyCode.Space)) 
+		{
+			burst (Color.red, numOfParticles);
+		}
 	}
 
 	public void burst (Color sent, int num)

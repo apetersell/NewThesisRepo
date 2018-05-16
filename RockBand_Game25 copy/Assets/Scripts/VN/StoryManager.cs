@@ -18,8 +18,8 @@ public class StoryManager : MonoBehaviour {
 	public static float statMeterFull = 1000f;
 	public static float statHighThresh1 = 500f;
 	public static float statLowThresh1 = 500;
-	public static float fanFlyingColors1 = 2000;
-	public static float fanPassing1 = 1000;
+	public static float fanFlyingColors1 = 1500;
+	public static float fanPassing1 = 750;
 	public static float aigFans; 
 
 	//Bools indicating whether a sideroute has been unlocked.
@@ -253,7 +253,11 @@ public class StoryManager : MonoBehaviour {
 		}
 		if (sourceText == "Day3Vocal")
 		{
-			result = "Good";
+			if (vocalScore < 500) {
+				result = "Bad";
+			} else {	
+				result = "Good";
+			}
 		}
 
 		if (sourceText == "Day4") 

@@ -21,6 +21,7 @@ public class SceneGuy : MonoBehaviour {
 	TransitionShifter rightTS;
 	TransitionShifter leftTS;
 	public Color visible;
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -63,6 +64,7 @@ public class SceneGuy : MonoBehaviour {
 		{
 			fanBar.SetActive (true);
 		}
+
 		StartCoroutine (loadErOnUp());
 	}
 

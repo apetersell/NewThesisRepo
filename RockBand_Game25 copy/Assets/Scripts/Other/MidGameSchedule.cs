@@ -18,6 +18,7 @@ public class MidGameSchedule : MonoBehaviour {
 	public static Color lerpingColor;
 	public float colorLerpSpeed; 
 	public static float staticCLS;
+	public Vector3 onScreenPos;
 
 	// Use this for initialization
 	void Start () 
@@ -40,6 +41,11 @@ public class MidGameSchedule : MonoBehaviour {
 
 	public void makeDummySchedule()
 	{
+		if (transform.localPosition != onScreenPos) 
+		{
+			transform.localPosition = onScreenPos;
+			Debug.Log ("SHIFTED");
+		}
 		for (int i = 0; i < dummyList.Count; i++) 
 		{
 			mainNodes [i].sprite = icon (dummyList [i]);

@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Yarn.Unity;
 
 public class DJSchedgy : MonoBehaviour {
 
 	public AudioClip titleMusic;
 	public AudioClip scheduleMusic;
 	public AudioClip selectedTrack;
-	public AudioClip VNMusic;
+	public AudioClip selectedTrackVN;
+	public AudioClip []VNMusic;
 	public AudioClip[] miniGameSongs;
 	public AudioClip postGameJingle;
 	bool playedJingle;
@@ -25,6 +27,7 @@ public class DJSchedgy : MonoBehaviour {
 	{
 		globe = GetComponent<GlobalManager> ();
 		aud = GetComponent<AudioSource> ();
+		//selectedTrackVN = VNMusic [0];
 		shuffle ();
 	}
 	
@@ -62,9 +65,9 @@ public class DJSchedgy : MonoBehaviour {
 				}
 			}
 		} else if (globe.myState == PlayerState.visualNoveling) {
-			if (aud.clip != VNMusic) {
+			if (aud.clip != selectedTrackVN && selectedTrackVN != null) {
 				aud.Stop ();
-				aud.clip = VNMusic;
+				aud.clip = selectedTrackVN;
 				aud.Play ();
 				aud.loop = true;
 			}
@@ -82,5 +85,20 @@ public class DJSchedgy : MonoBehaviour {
 	{
 		int rando = Random.Range (0, miniGameSongs.Length);
 		selectedTrack = miniGameSongs [rando];
+	}
+
+	[YarnCommand("BGM")]
+	public void changeVNTrack(string sent)
+	{
+		if (sent == "Heavy") 
+		{
+			selectedTrackVN = VNMusic [2];
+		}
+		else if (sent == "Light") {
+			selectedTrackVN = VNMusic [1];
+		} else {
+			selectedTrackVN = VNMusic [0];
+			Debug.Log ("Music: " + sent);
+		}
 	}
 }

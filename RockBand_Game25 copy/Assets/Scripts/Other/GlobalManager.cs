@@ -177,12 +177,13 @@ public class GlobalManager :  Singleton<GlobalManager>{
 
 		Screen.SetResolution(1600, 900, true);
 		sg = GetComponent<SceneGuy> ();
-		stressIncreaseRate = stressMultiLimit / 7;
+		stressIncreaseRate = stressMultiLimit / 8;
 	}
 
 	//Called when mini-game phase begins.
 	public void StartMiniGaming()
 	{
+		GetComponent<DJSchedgy> ().selectedTrackVN = null;
 		stressMultiplier = 1;
 		currentIndex = 0; //
 		JPIndex = 0;

@@ -98,9 +98,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 665
-        width: 849
-        height: 665
+        y: 621
+        width: 770
+        height: 621
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,10 +111,10 @@ TextureImporter:
       name: miniGameUnlockMessage_1
       rect:
         serializedVersion: 2
-        x: 849
-        y: 665
-        width: 849
-        height: 665
+        x: 770
+        y: 621
+        width: 770
+        height: 621
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -127,8 +127,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 849
-        height: 665
+        width: 770
+        height: 621
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -139,10 +139,10 @@ TextureImporter:
       name: miniGameUnlockMessage_3
       rect:
         serializedVersion: 2
-        x: 849
+        x: 770
         y: 0
-        width: 849
-        height: 665
+        width: 770
+        height: 621
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
