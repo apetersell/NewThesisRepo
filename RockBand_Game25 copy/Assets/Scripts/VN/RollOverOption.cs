@@ -32,11 +32,12 @@ public class RollOverOption : MonoBehaviour // 2
 	//When the pointer hovers over the node.
 	public void OnPointerEnter(PointerEventData eventData)
 	{
+		Debug.Log ("It's happening!");
 		KeyboardControls.currentChoice = myIndex;
 	}
 		
 	public void OnPointerExit(PointerEventData eventData)
 	{
-//		img.sprite = neutral;
+		
 	}
 }

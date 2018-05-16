@@ -11286,7 +11286,6 @@ GameObject:
   - component: {fileID: 1081700534}
   - component: {fileID: 1081700533}
   - component: {fileID: 1081700532}
-  - component: {fileID: 1081700531}
   m_Layer: 5
   m_Name: FanBar
   m_TagString: Untagged
@@ -11313,27 +11312,6 @@ RectTransform:
   m_AnchoredPosition: {x: 7.1033936, y: 384.70422}
   m_SizeDelta: {x: 1286.94, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1081700531
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1081700529}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54c3e80b031434427b330661e3f47764, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stressBar: 0
-  Dance: 0
-  Vocal: 0
-  PR: 0
-  Stress: 0
-  Relationship: 0
-  JP: 0
-  Lee: 0
-  Aig: 1
-  fanBar: 1
 --- !u!114 &1081700532
 MonoBehaviour:
   m_ObjectHideFlags: 0

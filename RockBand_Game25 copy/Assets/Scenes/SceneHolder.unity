@@ -217,7 +217,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &113042758
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2244,7 +2244,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.5163426, y: 143.206}
+  m_AnchoredPosition: {x: -681, y: 143.206}
   m_SizeDelta: {x: 1304, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1503690777
@@ -2304,6 +2304,7 @@ MonoBehaviour:
   mainNodes: []
   expandedScale: 1.2
   colorLerpSpeed: 20
+  onScreenPos: {x: -1.516343, y: 143.206, z: 0}
 --- !u!1 &1586462588
 GameObject:
   m_ObjectHideFlags: 0
@@ -2467,7 +2468,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0.79
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
 --- !u!222 &1599876196
@@ -2763,14 +2764,16 @@ MonoBehaviour:
   titleMusic: {fileID: 8300000, guid: 7bf795580fd7748a49e647f2884418b9, type: 3}
   scheduleMusic: {fileID: 8300000, guid: 35ad22d31ff204152b20b7508d40f0fd, type: 3}
   selectedTrack: {fileID: 8300000, guid: 4a1c99c3af6484c1ea9dad6a497a9c72, type: 3}
-  VNMusic: {fileID: 8300000, guid: cabb9adfa08704f629555f713a72664f, type: 3}
+  VNMusic:
+  - {fileID: 8300000, guid: de14cdb83c1fe47bf9aa7c716db2a6f0, type: 3}
+  - {fileID: 8300000, guid: 00b5f303ef25848ba9b059f72b5add94, type: 3}
+  - {fileID: 8300000, guid: 4e2c5bbc4fec143acada7554fb3a83d5, type: 3}
   miniGameSongs:
-  - {fileID: 8300000, guid: 3de03b6a313fe4440aa45112e4fbfaa1, type: 3}
-  - {fileID: 8300000, guid: a8f0f695583234f4a8260d406b823235, type: 3}
-  - {fileID: 8300000, guid: 284de59956b1846e89e93f2479cfdbea, type: 3}
-  - {fileID: 8300000, guid: ec35b9d2e30ad41078024e1c9ec27f1d, type: 3}
+  - {fileID: 8300000, guid: d629b3d5324424f6da76fde3890bd721, type: 3}
+  - {fileID: 8300000, guid: e9e2ad43ffded4668a44f66146ec4b28, type: 3}
   - {fileID: 8300000, guid: 7bf795580fd7748a49e647f2884418b9, type: 3}
-  postGameJingle: {fileID: 8300000, guid: 71f316e5e76bd456291e5e2f16fdc4e3, type: 3}
+  - {fileID: 8300000, guid: ec35b9d2e30ad41078024e1c9ec27f1d, type: 3}
+  postGameJingle: {fileID: 8300000, guid: 99a5029f04a8148f385901bc482a2200, type: 3}
 --- !u!82 &2118872829
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2871,7 +2874,7 @@ MonoBehaviour:
   Stress: 0
   stressMultiplier: 1
   stressIncreaseRate: 0
-  stressMultiLimit: 6
+  stressMultiLimit: 4
   SongWriteScore: 0
   ModelScore: 0
   TVScore: 0
@@ -2921,7 +2924,7 @@ MonoBehaviour:
   currentGameTime: 0
   myState: 0
   JPPresent: 0
-  LeePresent: 0
+  LeePresent: 1
   JPIndex: 0
   LeeIndex: 0
   maxJPTime: 0

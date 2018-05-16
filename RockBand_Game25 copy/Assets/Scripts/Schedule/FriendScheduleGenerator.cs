@@ -91,7 +91,11 @@ public class FriendScheduleGenerator : MonoBehaviour
 			result = prColor; 
 		}
 		if (type == UnitType.Rest){
-			result = restColor;
+			if (UnlockManager.restUnlocked) {
+				result = restColor;
+			} else {
+				result = Color.clear;
+			}
 		}
 		return result;
 	}
