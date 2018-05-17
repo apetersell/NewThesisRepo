@@ -388,11 +388,17 @@ public class GlobalManager :  Singleton<GlobalManager>{
 
 			if (LeeImage != null) 
 			{
-				LeeImage.SetActive (LeePresent);
+				if (currentGame != UnitType.Dance) 
+				{
+					LeeImage.SetActive (LeePresent);
+				}
 			}
 			if (JPImage != null) 
 			{
-				JPImage.SetActive (JPPresent);
+				if (currentGame != UnitType.Dance) 
+				{
+					JPImage.SetActive (JPPresent);
+				}
 			}
 			if (!miniGameDebug) 
 			{

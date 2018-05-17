@@ -54,6 +54,11 @@ public class GameManager : MonoBehaviour {
 	float greatTimer;
 	bool jpInit;
 	bool leeInit; 
+	public Transform jPe;
+	public Transform lee;
+	public Vector3 jpOn;
+	public Vector3 leeOn;
+	public Vector3 offStage;
 
 
 	void Awake () 
@@ -96,6 +101,8 @@ public class GameManager : MonoBehaviour {
 		goodBad = GameObject.Find ("GoodBad").GetComponent<Image> ();
 		endText = GameObject.Find ("EndText");
 		scoreBoard = GameObject.Find ("ScoreBoard");
+		jpOn = jPe.position;
+		leeOn = lee.position;
 	}
 
 	void Update () 
@@ -131,6 +138,7 @@ public class GameManager : MonoBehaviour {
 		greatTimer -= Time.deltaTime;
 		if (!SceneGuy.loadingScene)
 		handleAnimations ();
+		handleFriends ();
 		if (goodBad != null) {
 			gameTimer -= Time.deltaTime;
 			if (greatTimer > 0) {
@@ -342,6 +350,20 @@ public class GameManager : MonoBehaviour {
 			leeAnim.SetBool ("Left", leftC);
 		}
 	
+	}
+
+	void handleFriends()
+	{
+		if (globe.JPPresent) {
+			jPe.position = jpOn;
+		} else {
+			jPe.position = offStage;
+		}
+		if (globe.LeePresent) {
+			lee.position = leeOn;
+		} else {
+			lee.position = offStage;
+		}
 	}
 
 //	void handleEnding ()
