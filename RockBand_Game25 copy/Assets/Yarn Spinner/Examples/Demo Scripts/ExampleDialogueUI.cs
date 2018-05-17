@@ -287,6 +287,7 @@ public class ExampleDialogueUI : Yarn.Unity.DialogueUIBehaviour
 				{
 					if (gm.dayIndex >= endDate) 
 					{
+						gm.myState = PlayerState.endScreen;
 						sg.transitionScene("End");
 					} else if (gm.performance)
 					{

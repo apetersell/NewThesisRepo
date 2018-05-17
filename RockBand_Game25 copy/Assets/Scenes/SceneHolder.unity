@@ -2763,6 +2763,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   titleMusic: {fileID: 8300000, guid: 6c616b5a07f8b44d195a9540b6c5431b, type: 3}
+  endMusic: {fileID: 8300000, guid: 7bf795580fd7748a49e647f2884418b9, type: 3}
   scheduleMusic: {fileID: 8300000, guid: 35ad22d31ff204152b20b7508d40f0fd, type: 3}
   selectedTrack: {fileID: 8300000, guid: 4a1c99c3af6484c1ea9dad6a497a9c72, type: 3}
   selectedTrackVN: {fileID: 0}

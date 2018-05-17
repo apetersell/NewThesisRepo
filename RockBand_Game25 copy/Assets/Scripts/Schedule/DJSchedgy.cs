@@ -7,6 +7,7 @@ using Yarn.Unity;
 public class DJSchedgy : MonoBehaviour {
 
 	public AudioClip titleMusic;
+	public AudioClip endMusic;
 	public AudioClip scheduleMusic;
 	public AudioClip selectedTrack;
 	public AudioClip selectedTrackVN;
@@ -41,8 +42,7 @@ public class DJSchedgy : MonoBehaviour {
 				aud.Play ();
 				aud.loop = true;
 			} 
-		} else if (globe.myState == PlayerState.miniGaming) 
-		{
+		} else if (globe.myState == PlayerState.miniGaming) {
 			if (!globe.isStopped) {
 				if (aud.clip != selectedTrack) {
 					aud.Stop ();
@@ -53,10 +53,8 @@ public class DJSchedgy : MonoBehaviour {
 				}
 			} else {
 				aud.loop = false;
-				if (!playedJingle) 
-				{
-					if (!aud.isPlaying) 
-					{
+				if (!playedJingle) {
+					if (!aud.isPlaying) {
 						aud.Stop ();
 						aud.clip = postGameJingle;
 						aud.Play ();
@@ -75,6 +73,13 @@ public class DJSchedgy : MonoBehaviour {
 			if (aud.clip != titleMusic) {
 				aud.Stop ();
 				aud.clip = titleMusic;
+				aud.Play ();
+				aud.loop = true;
+			}
+		} else if (globe.myState == PlayerState.endScreen) {
+			if (aud.clip != endMusic) {
+				aud.Stop ();
+				aud.clip = endMusic;
 				aud.Play ();
 				aud.loop = true;
 			}

@@ -453,7 +453,7 @@ public class StoryManager : MonoBehaviour {
 
 	static string DayThree() 
 	{
-		float average = 50;
+		float average = 100;
 		string result = "";
 
 		if (isWellRounded (average)) {

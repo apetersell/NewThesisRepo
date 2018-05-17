@@ -11,6 +11,7 @@ public enum PlayerState{
 	miniGaming,
 	timescheduling,
 	visualNoveling,
+	endScreen,
 }
 
 public class GlobalManager :  Singleton<GlobalManager>{
