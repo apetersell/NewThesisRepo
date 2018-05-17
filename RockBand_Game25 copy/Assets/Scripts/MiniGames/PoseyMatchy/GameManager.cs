@@ -101,8 +101,6 @@ public class GameManager : MonoBehaviour {
 		goodBad = GameObject.Find ("GoodBad").GetComponent<Image> ();
 		endText = GameObject.Find ("EndText");
 		scoreBoard = GameObject.Find ("ScoreBoard");
-		jpOn = jPe.position;
-		leeOn = lee.position;
 	}
 
 	void Update () 
@@ -355,14 +353,14 @@ public class GameManager : MonoBehaviour {
 	void handleFriends()
 	{
 		if (globe.JPPresent) {
-			jPe.position = jpOn;
+			jPe.localPosition = jpOn;
 		} else {
-			jPe.position = offStage;
+			jPe.localPosition = offStage;
 		}
 		if (globe.LeePresent) {
-			lee.position = leeOn;
+			lee.localPosition = leeOn;
 		} else {
-			lee.position = offStage;
+			lee.localPosition = offStage;
 		}
 	}
 
