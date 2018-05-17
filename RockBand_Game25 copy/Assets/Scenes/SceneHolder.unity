@@ -168,7 +168,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 8d701c80de43f459a89837e587d186ee, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 631e753c20704495882a02e4af307274, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1080,7 +1080,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 8d701c80de43f459a89837e587d186ee, type: 3}
+  m_Sprite: {fileID: 21300002, guid: 631e753c20704495882a02e4af307274, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1355,7 +1355,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -211, y: -0.000015258789}
+  m_AnchoredPosition: {x: -213.9, y: -0.000015258789}
   m_SizeDelta: {x: 423.5, y: 498.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1054670595
@@ -2762,7 +2762,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88e96c264269c45a99333178b031a525, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  titleMusic: {fileID: 8300000, guid: 7bf795580fd7748a49e647f2884418b9, type: 3}
+  titleMusic: {fileID: 8300000, guid: 6c616b5a07f8b44d195a9540b6c5431b, type: 3}
   scheduleMusic: {fileID: 8300000, guid: 35ad22d31ff204152b20b7508d40f0fd, type: 3}
   selectedTrack: {fileID: 8300000, guid: 4a1c99c3af6484c1ea9dad6a497a9c72, type: 3}
   selectedTrackVN: {fileID: 0}
